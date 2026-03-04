@@ -15,9 +15,11 @@
   --text-soft:#6f6f73;
   --line:#cfc7bf;
   --max:1100px;
+  --header-h: 90px;
 }
 
 *{box-sizing:border-box}
+html { scroll-behavior: smooth; }
 
 body{
   margin:0;
@@ -35,15 +37,19 @@ header{
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid var(--line);
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
 }
 
 nav{ 
   max-width:var(--max);
   margin:auto;
-  padding:10px 25px;
+  padding:0 25px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  width: 100%;
 }
 
 .logo img{ height:200px; width:auto; }
@@ -56,9 +62,14 @@ nav{
   font-weight: 400;
 }
 
-section{ max-width:var(--max); margin:50px auto; padding:0 20px; }
+/* Чтобы меню не закрывало заголовки разделов */
+section { 
+  max-width:var(--max); 
+  margin:60px auto; 
+  padding:0 20px; 
+  scroll-margin-top: calc(var(--header-h) + 20px); 
+}
 
-/* ЛЮКСОВЫЕ ЗАГОЛОВКИ СЛЕВА */
 h1, h2, h3, h4 {
   font-family:'Cormorant Garamond', serif;
   color: var(--silver);
@@ -68,9 +79,17 @@ h1, h2, h3, h4 {
 }
 
 h1{ font-size: clamp(34px, 7vw, 52px); margin-bottom: 20px; }
-h2{ font-size: 38px; margin-bottom: 30px; }
-h3{ font-size: 30px; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 25px; }
-h4{ font-size: 18px; text-transform: uppercase; letter-spacing: 2px; margin-top: 35px; color: #777; }
+h2{ font-size: 42px; margin-bottom: 30px; }
+h3{ font-size: 32px; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 25px; }
+
+h4{ 
+  font-size: 18px; 
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+  margin-top: 45px; 
+  margin-bottom: 15px;
+  color: #7a7a7a;
+}
 
 .card{ 
   background:var(--card); 
@@ -79,11 +98,8 @@ h4{ font-size: 18px; text-transform: uppercase; letter-spacing: 2px; margin-top:
   margin-bottom: 30px; 
 }
 
-/* ПРИВЕТСТВИЕ */
 .hero-card { align-items: flex-start; display: flex; flex-direction: column; }
-.hero-card p { font-size: 18px; margin-bottom: 25px; }
 
-/* ИЗЯЩНАЯ КНОПКА */
 .btn{
   display: inline-flex;
   padding: 12px 35px;
@@ -96,20 +112,19 @@ h4{ font-size: 18px; text-transform: uppercase; letter-spacing: 2px; margin-top:
 }
 .btn:hover{ background:var(--silver); color:white; }
 
-/* ТАБЛИЦЫ ЦЕН */
-table{ width:100%; border-collapse:collapse; margin-top: 10px; }
+/* ТАБЛИЦЫ */
+table{ width:100%; border-collapse:collapse; }
 td{ padding:18px 0; border-bottom:1px solid var(--line); vertical-align: top; }
 td:first-child{ 
   font-family: 'Cormorant Garamond', serif; 
-  font-size: 20px; 
+  font-size: 22px; 
   color: var(--silver);
   width: 75%; 
 }
 td:last-child{ 
   text-align: right; 
-  font-weight: 400; 
   color: var(--silver);
-  font-size: 18px;
+  font-size: 20px;
   white-space: nowrap;
 }
 small{ display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; color: #888; margin-top: 6px; font-weight: 300; line-height: 1.4; }
@@ -117,23 +132,22 @@ small{ display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; c
 /* КАРТА */
 .map-container {
   width: 100%;
-  height: 350px;
-  border-radius: 15px;
+  height: 400px;
+  border-radius: 20px;
   overflow: hidden;
-  margin-top: 25px;
+  margin-top: 30px;
   border: 1px solid var(--line);
 }
 
 /* СЕТКА LEISTUNGEN */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.grid .card { text-align: center; }
-.grid h3 { text-align: center; border: none; }
+.grid .card { text-align: center; padding: 40px 25px; }
+.grid h3 { text-align: center; border: none; font-size: 28px; }
 
 @media (max-width: 768px){
-  nav { padding: 10px 15px; }
-  .links { gap: 15px; font-size: 13px; }
-  .logo img { height: 55px; }
-  .card { padding: 30px; }
+  header { height: auto; padding: 10px 0; }
+  nav { flex-direction: column; gap: 15px; }
+  .card { padding: 30px 20px; }
 }
 </style>
 </head>
@@ -151,10 +165,10 @@ small{ display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; c
 </nav>
 </header>
 
-<section>
+<section id="hero">
   <div class="card hero-card">
     <h1>Willkommen im K-Line Beauty Lab</h1>
-    <p>Ihr Ort für hochwertige Beauty-Behandlungen.</p>
+    <p>Ihr Ort für hochwertige Beauty-Behandlungen und Entspannung.</p>
     <a class="btn" href="https://wa.me/491713833793">Termin buchen</a>
   </div>
 </section>
@@ -168,11 +182,11 @@ small{ display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; c
     </div>
     <div class="card">
       <h3>Augenblick</h3>
-      <p>Professionelle Wimpernverlängerung и Browlifting.</p>
+      <p>Professionelle Wimpernverlängerung und Browlifting.</p>
     </div>
     <div class="card">
       <h3>Wohlbefinden</h3>
-      <p>Entspannung pur в уютной атмосфере моей студии.</p>
+      <p>Entspannung pur in gemütlicher Atmosphäre.</p>
     </div>
   </div>
 </section>
@@ -185,68 +199,38 @@ small{ display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; c
     
     <h4>Basis & Spezial</h4>
     <table>
-      <tr><td>Microneedling<small>(bereits nach der ersten Behandlung eine straffere, festere, jugendlichere Haut)</small></td><td>99,00 €</td></tr>
-      <tr><td>Classic<small>(Massage & Augenbrauen zupfen, Babor | Circadia Produkte)</small></td><td>60,00 €</td></tr>
+      <tr><td>MICRONEEDLING<small>(für straffere, festere und jugendlichere Haut)</small></td><td>99,00 €</td></tr>
+      <tr><td>CLASSIC<small>(Reinigung, Massage & Augenbrauen zupfen)</small></td><td>60,00 €</td></tr>
       <tr><td>Enzyme Pilling</td><td>10,00 €</td></tr>
       <tr><td>Gel-Based Pilling</td><td>25,00 €</td></tr>
     </table>
 
     <h4>Akne / Rosacea</h4>
     <table>
-      <tr><td>Circadia Oxygen RX<small>(reiner Sauerstoff fördert Durchblutung & Zellregeneration)</small></td><td>129,00 €</td></tr>
-      <tr><td>Circadia Oxygen RX 6er Kur</td><td>674,00 €</td></tr>
+      <tr><td>CIRCADIA OXYGEN RX<small>(fördert Durchblutung & Zellregeneration)</small></td><td>129,00 €</td></tr>
+      <tr><td>CIRCADIA OXYGEN RX 6er Kur</td><td>674,00 €</td></tr>
     </table>
 
     <h4>Luxury Anti Aging</h4>
     <table>
-      <tr><td>Circadia Firming Peptide Mask<small>(regt Kollagenproduktion an)</small></td><td>89,00 €</td></tr>
-      <tr><td>Circadia Firming Peptide Mask 6er Kur</td><td>434,00 €</td></tr>
+      <tr><td>CIRCADIA FIRMING PEPTIDE MASK</td><td>89,00 €</td></tr>
+      <tr><td>CIRCADIA FIRMING PEPTIDE MASK 6er Kur</td><td>434,00 €</td></tr>
     </table>
 
-    <h4>Circadia SWiCH™</h4>
+    <h4>CIRCADIA SWiCH™</h4>
     <table>
       <tr><td>Behandlung<small>(Anti-Aging Alternative zu Peelings)</small></td><td>99,00 €</td></tr>
     </table>
   </div>
 
   <div class="card">
-    <h3>Pediküre & Maniküre</h3>
+    <h3>Wellness & More</h3>
     <table>
       <tr><td>Klassische Pediküre</td><td>30,00 €</td></tr>
-      <tr><td>Klassische Maniküre</td><td>20,00 €</td></tr>
       <tr><td>Pediküre mit Gel</td><td>40,00 €</td></tr>
       <tr><td>Maniküre mit Gel</td><td>35,00 €</td></tr>
-      <tr><td>Nagelverlängerung</td><td>ab 40,00 €</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <h3>Wimpern Styling</h3>
-    <table>
       <tr><td>Lashlift (inkl. färben)</td><td>60,00 €</td></tr>
-      <tr><td>Wimpern färben</td><td>10,00 €</td></tr>
-      <tr><td>Neuanlage Volumen</td><td>129,00 €</td></tr>
-      <tr><td>Neuanlage 1:1 Technik</td><td>99,00 €</td></tr>
-      <tr><td>Auffüllen Volumen (2/3/4 Wochen)</td><td>44/53/63 €</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <h3>Augenbrauen Styling</h3>
-    <table>
       <tr><td>Browlift</td><td>60,00 €</td></tr>
-      <tr><td>Augenbrauen färben (Henna)</td><td>20,00 €</td></tr>
-      <tr><td>Augenbrauen zupfen</td><td>10,00 €</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <h3>Wellness Behandlungen</h3>
-    <table>
-      <tr><td>Gesichtsmassage (30min)<small>(verbessert den Lymphfluss, wirkt gegen geschwollene Augen)</small></td><td>35,00 €</td></tr>
-      <tr><td>Lymphmassage (60min / 90min)</td><td>65,00 € / 110,00 €</td></tr>
-      <tr><td>Ganzkörpermassage (60min / 90min)</td><td>79,00 € / 99,00 €</td></tr>
-      <tr><td>Rückenmassage (30min / 60min)</td><td>40,00 € / 70,00 €</td></tr>
     </table>
   </div>
 </section>
@@ -257,13 +241,13 @@ small{ display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; c
     <p>Karlsplatz 26, 06406 Bernburg</p>
     <p>Telefon: +49 171 3833793</p>
     <div style="display: flex; gap: 15px; margin-bottom: 25px;">
-      <a class="btn" href="https://wa.me/491713833793">WhatsApp</a>
-      <a class="btn" href="https://instagram.com/kleinbeautylab">Instagram</a>
+      <a class="btn" href="https://wa.me/491713833793" target="_blank">WhatsApp</a>
+      <a class="btn" href="https://instagram.com/k_linebeautylab" target="_blank">Instagram</a>
     </div>
 
     <div class="map-container">
       <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.603332464797!2d11.73836!3d51.79673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a5df57b4587635%3A0x63907f1f54921473!2sKarlspl.%2026%2C%2006406%20Bernburg%20(Saale)%2C%20Germany!5e0!3m2!1sde!2sde!4v1709570000000!5m2!1sde!2sde" 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2454.444738543789!2d11.73740207722749!3d51.79815097187889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a5da790757759d%3A0x6b7727181c0c660!2sKarlsplatz%2026%2C%2006406%20Bernburg%20(Saale)%2C%20Germany!5e0!3m2!1sen!2sde!4v1709575000000!5m2!1sen!2sde" 
         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
       </iframe>
     </div>
