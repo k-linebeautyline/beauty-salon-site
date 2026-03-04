@@ -153,18 +153,39 @@ small { display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; 
   margin-top: 25px;
   border: 1px solid var(--line);
 }
+
+/* Сетка для услуг: возвращаем в ряд */
+.grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 20px; 
+}
+
+.grid .card { 
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 30px;
+}
+
+.grid h3 { text-align: center; border: none; }
+
+/* Заголовок категории и цена в одну строку */
 .category-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center; /* Выравнивание по центру строки */
   border-bottom: 1px solid var(--line);
   margin-top: 35px;
   margin-bottom: 10px;
+  padding-bottom: 5px;
 }
 
 .category-header h4 {
   margin: 0;
-  padding-bottom: 5px;
+  flex: 1; /* Название занимает все место слева */
 }
 
 .category-price {
@@ -172,15 +193,14 @@ small { display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; 
   font-size: 22px;
   color: var(--silver);
   font-weight: 500;
+  white-space: nowrap; /* Цена не переносится */
+  margin-left: 15px;
 }
 
-/* Для мобильных: если название слишком длинное, цена не прилипнет */
+/* Мобильная адаптация для заголовков категорий */
 @media (max-width: 480px) {
-  .category-price {
-    font-size: 18px;
-    margin-left: 10px;
-    white-space: nowrap;
-  }
+  .category-price { font-size: 18px; }
+  .category-header h4 { font-size: 16px; }
 }
 </style>
 </head>
