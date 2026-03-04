@@ -34,13 +34,34 @@ header {
   border-bottom: 1px solid var(--line);
 }
 
+/* Обновленная навигация */
 nav { 
   max-width: var(--max);
   margin: auto;
-  padding: 15px 20px;
+  padding: 20px 40px; /* Увеличили боковые отступы */
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.links { 
+  display: flex; 
+  gap: 40px; /* Увеличили расстояние между словами */
+  margin-right: 50px; /* Отодвигаем меню от правого края к середине */
+}
+
+.links a { 
+  text-decoration: none; 
+  color: var(--silver); 
+  font-size: 18px; /* Сделали шрифт крупнее (было 15px) */
+  font-weight: 500;
+  text-transform: uppercase; /* Можно добавить заглавные буквы для четкости */
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.links a:hover {
+  color: #000; /* Цвет при наведении */
 }
 
 .logo img { height: 150px; width: auto; display: block; }
@@ -148,11 +169,37 @@ small { display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; 
 
 /* МОБИЛЬНАЯ АДАПТАЦИЯ */
 @media (max-width: 768px) {
-  nav { flex-direction: column; gap: 15px; padding: 10px; }
-  .logo img { height: 120px; }
-  .card { padding: 25px; }
+  nav { 
+    flex-direction: column; 
+    gap: 20px; 
+    padding: 20px 10px; 
+  }
+  
+  .logo img { 
+    height: 130px; /* Немного уменьшили, чтобы меню не улетало слишком низко */
+  }
 
-  /* Таблицы в один столбец, чтобы не плавали */
+  /* СТИЛИ ДЛЯ МЕНЮ НА МОБИЛЬНОМ */
+  .links { 
+    display: flex;
+    justify-content: center; /* Центрируем по горизонтали */
+    gap: 25px; /* Расстояние между ссылками */
+    width: 100%;
+    margin-right: 0; /* Убираем компьютерный отступ */
+    padding-top: 10px;
+    border-top: 1px solid var(--line); /* Тонкая разделительная линия */
+  }
+
+  .links a { 
+    font-size: 18px; /* Увеличили размер текста */
+    font-weight: 600; /* Сделали жирнее, чтобы буквы не «растворялись» */
+    color: var(--silver);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Таблицы в один столбец */
+  .card { padding: 25px; }
   tr { display: flex; flex-direction: column; padding: 10px 0; }
   td { width: 100% !important; border: none !important; padding: 0 !important; }
   td:last-child { 
@@ -206,7 +253,6 @@ small { display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; 
 <section>
   <div class="card hero-card">
     <h1>Willkommen im K-Line Beauty Lab</h1>
-    <p>Ihr Ort für hochwertige Beauty-Behandlungen.</p>
     <a class="btn" href="https://wa.me/491713833793">Termin buchen</a>
   </div>
 </section>
