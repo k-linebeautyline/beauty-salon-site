@@ -8,7 +8,7 @@
   --max: 1100px;
 }
 
-/* Общие настройки для стабильности */
+/* Общие настройки */
 * { box-sizing: border-box; }
 html, body { 
   margin: 0; 
@@ -43,24 +43,16 @@ nav {
   align-items: center;
 }
 
-.logo img { 
-  height: 150px; 
-  width: auto; 
-  display: block; 
-}
+.logo img { height: 150px; width: auto; display: block; }
 
 .links { display: flex; gap: 25px; }
-.links a { 
-  text-decoration: none; 
-  color: var(--silver); 
-  font-size: 15px; 
-  font-weight: 500;
-}
+.links a { text-decoration: none; color: var(--silver); font-size: 15px; font-weight: 500; }
 
 /* СЕКЦИИ */
 section { max-width: var(--max); margin: 40px auto; padding: 0 20px; }
 
-h1, h2, h3, h4 {
+/* Единый стиль для всех заголовков в прайсе */
+h1, h2, h3, h4, .category-header h4 {
   font-family: 'Cormorant Garamond', serif;
   color: var(--silver);
   font-weight: 400;
@@ -69,6 +61,8 @@ h1, h2, h3, h4 {
 
 h1 { font-size: clamp(30px, 8vw, 52px); margin-bottom: 20px; }
 h2 { font-size: clamp(28px, 6vw, 38px); margin-bottom: 30px; }
+h3 { font-size: 28px; margin-bottom: 20px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+h4 { font-size: 22px; margin-top: 25px; margin-bottom: 15px; }
 
 .card { 
   background: var(--card); 
@@ -77,53 +71,44 @@ h2 { font-size: clamp(28px, 6vw, 38px); margin-bottom: 30px; }
   margin-bottom: 30px; 
 }
 
-/* ТАБЛИЦЫ: Фикс плавающих колонок */
+/* ТАБЛИЦЫ: Идеальное выравнивание */
 table { 
   width: 100%; 
   border-collapse: collapse; 
-  table-layout: fixed; /* Строго фиксирует ширину колонок */
+  table-layout: fixed; /* ГАРАНТИЯ ровной линии цен */
+  margin-bottom: 10px;
 }
 
 td { 
   padding: 18px 0; 
   border-bottom: 1px solid var(--line); 
-  vertical-align: top; 
+  vertical-align: top;
   word-wrap: break-word;
 }
 
+/* Колонка с названием - 75% */
 td:first-child { 
-  width: 75%; /* Задаем четкую ширину для названий */
+  width: 75%; 
   font-family: 'Cormorant Garamond', serif; 
   font-size: 20px; 
   color: var(--silver);
-  padding-right: 15px;
+  padding-right: 20px;
+  line-height: 1.2;
 }
 
+/* Колонка с ценой - 25% */
 td:last-child { 
-  width: 25%; /* Задаем четкую ширину для цен */
+  width: 25%; 
   text-align: right; 
   font-weight: 500; 
   color: var(--silver);
   font-size: 18px;
-  white-space: nowrap;
+  white-space: nowrap; 
 }
 
-small { display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; color: #888; margin-top: 6px; line-height: 1.4; }
+small { display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; color: #888; margin-top: 6px; line-height: 1.4; text-transform: none; }
 
-.btn {
-  display: inline-flex;
-  padding: 12px 35px;
-  border: 1px solid var(--silver);
-  border-radius: 50px;
-  text-decoration: none;
-  color: var(--silver);
-  font-size: 14px;
-  transition: .3s;
-  margin-top: 10px;
-}
-.btn:hover { background: var(--silver); color: white; }
-
-/* КАТЕГОРИИ: Название и Цена в одну строку */
+/* КАТЕГОРИИ: Название и Цена строго в ряд */
 .category-header {
   display: flex;
   justify-content: space-between;
@@ -134,16 +119,17 @@ small { display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; 
   padding-bottom: 5px;
 }
 
+.category-header h4 { margin: 0; font-size: 22px; }
+
 .category-price {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
   color: var(--silver);
   font-weight: 500;
   white-space: nowrap;
-  margin-left: 15px;
 }
 
-/* СЕТКА УСЛУГ */
+/* СЕТКА УСЛУГ (Leistungen) */
 .grid { 
   display: grid; 
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -156,26 +142,24 @@ small { display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; 
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  padding: 30px;
 }
 
-.grid h3 { text-align: center; border: none; }
+.grid h3 { text-align: center; border: none; padding: 0; }
 
-/* МОБИЛЬНАЯ АДАПТАЦИЯ: Фикс плавающего контента */
+/* МОБИЛЬНАЯ АДАПТАЦИЯ */
 @media (max-width: 768px) {
   nav { flex-direction: column; gap: 15px; padding: 10px; }
-  .logo img { height: 130px; } /* Чуть компактнее на мобильном */
-  .links { gap: 15px; font-size: 14px; }
+  .logo img { height: 120px; }
   .card { padding: 25px; }
 
-  /* Таблицы становятся списком, чтобы не вылезать за экран */
+  /* Таблицы в один столбец, чтобы не плавали */
   tr { display: flex; flex-direction: column; padding: 10px 0; }
   td { width: 100% !important; border: none !important; padding: 0 !important; }
   td:last-child { 
     text-align: left !important; 
     margin-top: 5px; 
     font-size: 19px; 
-    color: #000; 
+    color: #333;
     border-bottom: 1px solid var(--line) !important;
     padding-bottom: 10px !important;
   }
@@ -188,6 +172,21 @@ small { display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; 
   overflow: hidden;
   margin-top: 25px;
   border: 1px solid var(--line);
+}
+.btn {
+  display: inline-flex;
+  padding: 12px 35px;
+  border: 1px solid var(--silver);
+  border-radius: 50px;
+  text-decoration: none;
+  color: var(--silver);
+  font-size: 14px;
+  transition: .3s;
+  margin-top: 10px;
+}
+.btn:hover { 
+  background: var(--silver); 
+  color: white; 
 }
 </style>
 
@@ -231,91 +230,91 @@ small { display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; 
 </section>
 
 <section id="preise">
-<h2>Preise</h2>
+  <h2>Preise</h2>
 
-<div class="card">
-<h3>Gesichtsbehandlungen</h3>
-<h4>Basis & Spezial</h4>
-<table>
-<tr><td>MICRONEEDLING<small>(bereits nach der ersten Gesichtsbehandlung eine straffere, festere, jugendlichere und frischer aussehende Haut)</small></td><td>99,00 €</td></tr>
-<tr><td>CLASSIC<small>(abgestimmt auf Ihr Hautbedürfnis verwöhnen wir Sie mit Produkten aus der Babor | Circadia Serie und mit einer einzigartigen Massage & Augenbrauen zupfen)</small></td><td>60,00 €</td></tr>
-<tr><td>Enzyme Pilling</td><td>10 €</td></tr>
-<tr><td>Gel-Based Pilling</td><td>25 €</td></tr>
-</table>
+  <div class="card">
+    <h3>Gesichtsbehandlungen</h3>
+    
+    <h4>Basis & Spezial</h4>
+    <table>
+      <tr><td>MICRONEEDLING<small>(bereits nach der ersten Gesichtsbehandlung eine straffere, festere, jugendlichere und frischer aussehende Haut)</small></td><td>99,00 €</td></tr>
+      <tr><td>CLASSIC<small>(abgestimmt auf Ihr Hautbedürfnis verwöhnen wir Sie mit Produkten aus der Babor | Circadia Serie und mit einer einzigartigen Massage & Augenbrauen zupfen)</small></td><td>60,00 €</td></tr>
+      <tr><td>Enzyme Pilling</td><td>10,00 €</td></tr>
+      <tr><td>Gel-Based Pilling</td><td>25,00 €</td></tr>
+    </table>
 
-<div class="category-header">
-<h4>AKNE / ROSACEA</h4>
-<div class="category-price">129,00 €</div>
-</div>
-<table>
-<tr><td>CIRCADIA OXYGEN RX<small>reiner Sauerstoff wird aufgetragen in Kombination mit speziellen Seren und Wirkstoffen - fördert Durchblutung, regt Zellregeneration an und entzündungshemmende Effekte (inkl. Enzyme & Heimpflegeplan)</small></td><td></td></tr>
-<tr><td>CIRCADIA OXYGEN RX 6er Kur</td></tr>
-</table>
+    <div class="category-header">
+      <h4>AKNE / ROSACEA</h4>
+      <div class="category-price">129,00 €</div>
+    </div>
+    <table>
+      <tr><td>CIRCADIA OXYGEN RX<small>reiner Sauerstoff wird aufgetragen in Kombination mit speziellen Seren und Wirkstoffen - fördert Durchblutung, regt Zellregeneration an und entзündungshemmende Effekte (inkl. Enzyme & Heimpflegeplan)</small></td><td></td></tr>
+      <tr><td>CIRCADIA OXYGEN RX 6er Kur</td><td>774,00 €</td></tr>
+    </table>
 
-<div class="category-header">
-<h4>LUXURY ANTI AGING</h4>
-<div class="category-price">674,00 €</div>
-</div>
-<table>
-<tr><td>CIRCADIA FIRMING PEPTIDE MASK<small>(inkl. Enzyme) enthält Peptide, die als Bausteine von Proteinen in der Haut wirken und die Kollagenproduktion anregen - dadurch straffere Haut und Faltenreduktion</small></td><td>89,00 €</td></tr>
-<tr><td>CIRCADIA FIRMING PEPTIDE MASK 6er Kur</td><td>434,00 €</td></tr>
-</table>
+    <div class="category-header">
+      <h4>LUXURY ANTI AGING</h4>
+      <div class="category-price">674,00 €</div>
+    </div>
+    <table>
+      <tr><td>CIRCADIA FIRMING PEPTIDE MASK<small>(inkl. Enzyme) enthält Peptide, die als Bausteine von Proteinen in der Haut wirken und die Kollagenproduktion anregen - dadurch straffere Haut und Faltenreduktion</small></td><td>89,00 €</td></tr>
+      <tr><td>CIRCADIA FIRMING PEPTIDE MASK 6er Kur</td><td>434,00 €</td></tr>
+    </table>
 
-<div class="category-header">
-<h4>Circadia SWiCH™</h4>
-<div class="category-price">99,00 €</div>
-</div>
-<table>
-<tr>
-<td>
-<small>Dieses Anti-Aging Treatment arbeitet mit dem natürlichen Reparaturmechanismus der Haut, ohne sie dabei zu schädigen. Eine hervorragende Alternative zu chemischen Peelings. SWiCH™ nutzt die biologischen Stoffwechselprozesse die auf natürliche Weise in jeder Zelle des Körpers die Energieproduktion stimulieren.</small>
-</td>
-<td></td>
-</tr>
-</table>
+    <div class="category-header">
+      <h4>Circadia SWiCH™</h4>
+      <div class="category-price">99,00 €</div>
+    </div>
+    <table>
+      <tr>
+        <td><small>Dieses Anti-Aging Treatment arbeitet mit dem natürlichen Reparaturmechanismus der Haut, ohne sie dabei zu schädigen. Eine hervorragende Alternative zu chemischen Peelings. SWiCH™ nutzt die biologischen Stoffwechselprozesse die на natürliche Weise in jeder Zelle des Körpers die Energieproduktion stimulieren.</small></td>
+        <td></td>
+      </tr>
+    </table>
+  </div> <div class="card">
+    <h3>Wimpern & Augenbrauen</h3>
+    
+    <h4>Wimpernverlängerung</h4>
+    <table>
+      <tr><td>Neuanlage Volumen</td><td>129,00 €</td></tr>
+      <tr><td>Neuanlage 1:1 Technik</td><td>99,00 €</td></tr>
+    </table>
 
-<div class="card">
-<h3>Wimpern & Augenbrauen</h3>
-<h4>Wimpernverlängerung</h4>
-<table>
-<tr><td>Neuanlage Volumen</td><td>129,00 €</td></tr>
-<tr><td>Neuanlage 1:1 Technik</td><td>99,00 €</td></tr>
-</table>
-<h4 style="margin-top: 25px;">Auffüllpreise</h4>
-<table>
-<tr><td>1:1 Technik nach 2 / 3 / 4 Wochen</td><td>40,00 € / 49,00 € / 59,00 €</td></tr>
-<tr><td>Volumen Technik nach 2 / 3 / 4 Wochen</td><td>44,00 € / 53,00 € / 63,00 €</td></tr>
-<tr><td>Wimpern entfernen</td><td>10,00 €</td></tr>
-<tr><td>Wimpernshampoo</td><td>19,00 €</td></tr>
-</table>
+    <h4 style="margin-top: 25px;">Auffüllpreise</h4>
+    <table>
+      <tr><td>1:1 Technik nach 2 / 3 / 4 Wochen</td><td>40,00 € / 49,00 € / 59,00 €</td></tr>
+      <tr><td>Volumen Technik nach 2 / 3 / 4 Wochen</td><td>44,00 € / 53,00 € / 63,00 €</td></tr>
+      <tr><td>Wimpern entfernen</td><td>10,00 €</td></tr>
+      <tr><td>Wimpernshampoo</td><td>19,00 €</td></tr>
+    </table>
 
-<h4 style="margin-top: 25px;">Wimpern & Augenbrauen Styling</h4>
-<table>
-<tr><td>Lashlift (inkl. färben)</td><td>60,00 €</td></tr>
-<tr><td>Wimpern färben</td><td>10,00 €</td></tr>
-<tr><td>Browlift</td><td>60,00 €</td></tr>
-<tr><td>Augenbrauen färben (Henna)</td><td>20,00 €</td></tr>
-<tr><td>Augenbrauen zupfen</td><td>10,00 €</td></tr>
-</table>
-</div>
+    <h4 style="margin-top: 25px;">Wimpern & Augenbrauen Styling</h4>
+    <table>
+      <tr><td>Lashlift (inkl. färben)</td><td>60,00 €</td></tr>
+      <tr><td>Wimpern färben</td><td>10,00 €</td></tr>
+      <tr><td>Browlift</td><td>60,00 €</td></tr>
+      <tr><td>Augenbrauen färben (Henna)</td><td>20,00 €</td></tr>
+      <tr><td>Augenbrauen zupfen</td><td>10,00 €</td></tr>
+    </table>
+  </div>
 
-<div class="card">
-<h3>Wellness Behandlungen</h3>
-<table>
-<tr><td>Gesichtsmassage (30min)<small>(verbessert den Lymphfluss und wirkt so gegen geschwollene oder müde Augen. Eine Gesichtsmassage regt die Durchblutung an und kann einen strahlenden Teint unterstützen)</small></td><td>35,00 €</td></tr>
-<tr><td>Lymphmassage (60min / 90min)<small>(Dabei wird der Transport der Lymphflüssigkeit in den Lymphgefäßen durch sanfte Grifftechniken angeregt. Für Gesicht, Arme, Rücken und Beine)</small></td><td>65,00 € / 110,00 €</td></tr>
-<tr><td>Ganzkörpermassage (60min / 90min)<small>(Massage des Rückens, der Beine, der Arme, des Bauches, der Hände, der Füße, des Gesichts, des Kopfes, der Schultern und des Nackens. Lassen Sie sich voll und ganz verwöhnen)</small></td><td>79,00 € / 99,00 €</td></tr>
-<tr><td>Rückenmassage (30min / 60min)<small>(Schlaff? Müde? Verspannt? Alltag für viele. Wirken Sie dem entgegen und lassen Sie sich verwöhnen und Verspannungen lösen)</small></td><td>40,00 € / 70,00 €</td></tr>
-</table>
-<h4 style="margin-top: 35px;">Pediküre & Maniküre</h4>
-<table>
-<tr><td>Klassische Pediküre / Klassische Maniküre</td><td>30 € / 20 €</td></tr>
-<tr><td>Pediküre mit Gel / Maniküre mit Gel</td><td>40 € / 35 €</td></tr>
-<tr><td>Nagelverlängerung</td><td>ab 40 €</td></tr>
-</table>
-</div>
+  <div class="card">
+    <h3>Wellness Behandlungen</h3>
+    <table>
+      <tr><td>Gesichtsmassage (30min)<small>(verbessert den Lymphfluss и wirkt so gegen geschwollene oder müde Augen. Eine Gesichtsmassage regt die Durchblutung an и kann einen strahlenden Teint unterstützen)</small></td><td>35,00 €</td></tr>
+      <tr><td>Lymphmassage (60min / 90min)<small>(Dabei wird der Transport der Lymphflüssigkeit in den Lymphgefäßen durch sanfte Grifftechniken angeregt. Für Gesicht, Arme, Rücken и Beine)</small></td><td>65,00 € / 110,00 €</td></tr>
+      <tr><td>Ganzkörpermassage (60min / 90min)<small>(Massage des Rückens, der Beine, der Arme, des Bauches, der Hände, der Füße, des Gesichts, des Kopfes, der Schultern и des Nackens. Lassen Sie sich voll и ganz verwöhnen)</small></td><td>79,00 € / 99,00 €</td></tr>
+      <tr><td>Rückenmassage (30min / 60min)<small>(Schlaff? Müde? Verspannt? Alltag für viele. Wirken Sie dem entgegen и lassen Sie sich verwöhnen и Verspannungen lösen)</small></td><td>40,00 € / 70,00 €</td></tr>
+    </table>
+
+    <h4 style="margin-top: 35px;">Pediküre & Maniküre</h4>
+    <table>
+      <tr><td>Klassische Pediküre / Maniküre</td><td>30,00 € / 20,00 €</td></tr>
+      <tr><td>Pediküre mit Gel / Maniküre mit Gel</td><td>40,00 € / 35,00 €</td></tr>
+      <tr><td>Nagelverlängerung</td><td>ab 40,00 €</td></tr>
+    </table>
+  </div>
 </section>
-
 <section id="kontakt">
   <div class="card hero-card">
     <h3>Kontakt</h3>
