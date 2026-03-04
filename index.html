@@ -5,17 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>K-Line Beauty Lab</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --bg:#d9d3cc;
   --card:#ece7e1;
-  /* Цвет темного серебра как на твоем макете */
-  --silver-text: #5a5a5a; 
-  --text-main:#6f6f73;
+  --silver: #5a5a5a; /* Тот самый цвет темного серебра */
+  --text-soft:#6f6f73;
   --line:#cfc7bf;
-  --radius:18px;
   --max:1100px;
 }
 
@@ -24,130 +22,107 @@
 body{
   margin:0;
   background:var(--bg);
-  color:var(--text-main);
+  color:var(--text-soft);
   font-family:'Montserrat', sans-serif;
-  letter-spacing:.3px;
   line-height: 1.6;
 }
 
+/* ШАПКА: Лого слева, Меню справа */
 header{
-  border-bottom:1px solid var(--line);
-  background:rgba(255,255,255,0.6);
+  background:rgba(255,255,255,0.5);
   backdrop-filter:blur(10px);
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid var(--line);
 }
 
 nav{ 
   max-width:var(--max);
   margin:auto;
-  padding:15px 25px;
+  padding:10px 25px;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
-.logo img{ height:200px; width:auto; display: block; }
+.logo img{ height:200px; width:auto; }
 
-/* Меню справа */
 .links { display: flex; gap: 30px; }
 .links a{ 
   text-decoration:none; 
-  color: var(--silver-text); 
-  font-weight: 400; 
+  color: var(--silver); 
   font-size: 15px; 
+  font-weight: 400;
 }
 
-section{ max-width:var(--max); margin:40px auto; padding:0 20px; }
+section{ max-width:var(--max); margin:50px auto; padding:0 20px; }
 
-/* Заголовки СЛЕВА и цветом темного серебра */
-h1{
+/* ЛЮКСОВЫЕ ЗАГОЛОВКИ СЛЕВА */
+h1, h2, h3, h4 {
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(34px, 7vw, 56px);
-  font-weight:300;
-  color: var(--silver-text); 
-  margin-bottom:15px;
+  color: var(--silver);
+  font-weight: 400;
   text-align: left;
+  margin-top: 0;
 }
 
-h2{ 
-  font-family:'Cormorant Garamond', serif; 
-  font-size:36px; 
-  margin-bottom:25px; 
-  text-align: left; 
-  color: var(--silver-text); 
-}
+h1{ font-size: clamp(34px, 7vw, 52px); margin-bottom: 20px; }
+h2{ font-size: 38px; margin-bottom: 30px; }
+h3{ font-size: 30px; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 25px; }
+h4{ font-size: 20px; text-transform: uppercase; letter-spacing: 2px; margin-top: 35px; }
 
 .card{ 
   background:var(--card); 
-  padding:40px; 
-  border-radius:var(--radius); 
-  margin-bottom: 25px; 
+  padding:45px; 
+  border-radius:25px; 
+  margin-bottom: 30px; 
 }
 
-/* Приветственный блок: текст и кнопка слева */
-.hero-card { 
-  text-align: left; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: flex-start; 
-}
+/* ПРИВЕТСТВИЕ */
+.hero-card { align-items: flex-start; display: flex; flex-direction: column; }
+.hero-card p { font-size: 18px; margin-bottom: 25px; }
 
-/* Аккуратная кнопка */
+/* ИЗЯЩНАЯ КНОПКА */
 .btn{
   display: inline-flex;
-  padding: 10px 30px;
-  border: 1px solid var(--silver-text);
-  border-radius: 40px;
+  padding: 12px 35px;
+  border: 1px solid var(--silver);
+  border-radius: 50px;
   text-decoration: none;
-  color: var(--silver-text);
-  font-weight: 400;
+  color: var(--silver);
   font-size: 14px;
   transition: .3s;
-  margin-top: 15px;
 }
-.btn:hover{ background:var(--silver-text); color:white; }
+.btn:hover{ background:var(--silver); color:white; }
 
-/* Сетка для Leistungen */
-.preise-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-}
-
-h3 { 
-  font-family:'Cormorant Garamond', serif; 
-  font-size: 28px; 
-  color: var(--silver-text); 
-  margin-top: 0; 
-  border-bottom: 1px solid var(--line); 
-  padding-bottom: 10px; 
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-h4 { 
-  font-family:'Cormorant Garamond', serif; 
+/* ТАБЛИЦЫ ЦЕН */
+table{ width:100%; border-collapse:collapse; margin-top: 10px; }
+td{ padding:18px 0; border-bottom:1px solid var(--line); vertical-align: top; }
+td:first-child{ 
+  font-family: 'Cormorant Garamond', serif; 
   font-size: 20px; 
-  color: #555; 
-  margin: 30px 0 10px 0; 
-  text-transform: uppercase; 
-  letter-spacing: 1px;
+  color: var(--silver);
+  width: 75%; 
 }
+td:last-child{ 
+  text-align: right; 
+  font-weight: 400; 
+  color: var(--silver);
+  font-size: 18px;
+}
+small{ display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; color: #888; margin-top: 6px; font-weight: 300; line-height: 1.4; }
 
-table{ width:100%; border-collapse:collapse; }
-td{ padding:15px 0; border-bottom:1px solid var(--line); vertical-align: top; }
-td:first-child{ font-weight: 600; color: #444; padding-right: 20px; width: 70%; }
-td:last-child{ text-align: right; white-space: nowrap; font-weight: 600; color: #444; }
-small{ display: block; font-weight: 300; font-size: 13px; margin-top: 5px; color: #777; }
+/* СЕТКА ДЛЯ LEISTUNGEN */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.grid .card { text-align: center; }
+.grid h3 { text-align: center; border: none; }
 
 @media (max-width: 768px){
   nav { padding: 10px 15px; }
-  .logo img { height: 60px; }
-  .links { gap: 15px; }
-  h1, h2 { text-align: left; }
-  .card { padding: 25px; }
+  .links { gap: 15px; font-size: 13px; }
+  .logo img { height: 55px; }
+  .card { padding: 30px; }
 }
 </style>
 </head>
@@ -174,19 +149,18 @@ small{ display: block; font-weight: 300; font-size: 13px; margin-top: 5px; color
 </section>
 
 <section id="leistungen">
-  <h2>Leistungen</h2>
-  <div class="preise-grid"> 
-    <div class="card" style="text-align: center;">
-      <h3 style="border:none; text-align: center;">Hautpflege</h3>
+  <div class="grid">
+    <div class="card">
+      <h3>Hautpflege</h3>
       <p>Individuelle Gesichtsbehandlungen für ein strahlendes Ergebnis.</p>
     </div>
-    <div class="card" style="text-align: center;">
-      <h3 style="border:none; text-align: center;">Augenblick</h3>
-      <p>Professionelle Wimpernverlängerung и Browlifting.</p>
+    <div class="card">
+      <h3>Augenblick</h3>
+      <p>Professionelle Wimpernverlängerung und Browlifting.</p>
     </div>
-    <div class="card" style="text-align: center;">
-      <h3 style="border:none; text-align: center;">Wohlbefinden</h3>
-      <p>Entspannung pur в уютной атмосфере моей студии.</p>
+    <div class="card">
+      <h3>Wohlbefinden</h3>
+      <p>Entspannung pur in уютной атмосфере моей студии.</p>
     </div>
   </div>
 </section>
@@ -199,71 +173,45 @@ small{ display: block; font-weight: 300; font-size: 13px; margin-top: 5px; color
     
     <h4>Basis & Spezial</h4>
     <table>
-      <tr><td>MICRONEEDLING<small>(bereits nach der ersten Behandlung eine straffere Haut)</small></td><td>99,00 €</td></tr>
-      <tr><td>CLASSIC<small>(Massage & Augenbrauen zupfen, Babor | Circadia Produkte)</small></td><td>60,00 €</td></tr>
+      <tr><td>Microneedling<small>(straffere, festere, jugendlichere und frischer aussehende Haut)</small></td><td>99,00 €</td></tr>
+      <tr><td>Classic<small>(Massage & Augenbrauen zupfen, Babor | Circadia Produkte)</small></td><td>60,00 €</td></tr>
       <tr><td>Enzyme Pilling</td><td>10,00 €</td></tr>
       <tr><td>Gel-Based Pilling</td><td>25,00 €</td></tr>
     </table>
 
     <h4>Akne / Rosacea</h4>
     <table>
-      <tr><td>CIRCADIA OXYGEN RX<small>(reiner Sauerstoff fördert Durchblutung & Zellregeneration)</small></td><td>129,00 €</td></tr>
-      <tr><td>CIRCADIA OXYGEN RX 6er Kur</td><td>674,00 €</td></tr>
+      <tr><td>Circadia Oxygen RX<small>(reiner Sauerstoff fördert Durchblutung & Zellregeneration)</small></td><td>129,00 €</td></tr>
+      <tr><td>Circadia Oxygen RX 6er Kur</td><td>674,00 €</td></tr>
     </table>
 
     <h4>Luxury Anti Aging</h4>
     <table>
-      <tr><td>CIRCADIA FIRMING PEPTIDE MASK<small>(regt Kollagenproduktion an)</small></td><td>89,00 €</td></tr>
-      <tr><td>CIRCADIA FIRMING PEPTIDE MASK 6er Kur</td><td>434,00 €</td></tr>
-    </table>
-
-    <h4>Circadia SWiCH™</h4>
-    <table>
-      <tr><td>Behandlung<small>(Anti-Aging Alternative zu Peelings)</small></td><td>99,00 €</td></tr>
+      <tr><td>Circadia Firming Peptide Mask</td><td>89,00 €</td></tr>
+      <tr><td>Circadia Firming Peptide Mask 6er Kur</td><td>434,00 €</td></tr>
     </table>
   </div>
 
   <div class="card">
-    <h3>Pediküre & Maniküre</h3>
+    <h3>Wellness & More</h3>
     <table>
       <tr><td>Klassische Pediküre</td><td>30,00 €</td></tr>
-      <tr><td>Klassische Maniküre</td><td>20,00 €</td></tr>
       <tr><td>Pediküre mit Gel</td><td>40,00 €</td></tr>
-      <tr><td>Maniküre mit Gel</td><td>35,00 €</td></tr>
-      <tr><td>Nagelverlängerung</td><td>ab 40,00 €</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <h3>Wimpern & Brauen Styling</h3>
-    <table>
-      <tr><td>Neuanlage Volumen</td><td>129,00 €</td></tr>
       <tr><td>Lashlift (inkl. färben)</td><td>60,00 €</td></tr>
       <tr><td>Browlift</td><td>60,00 €</td></tr>
-      <tr><td>Augenbrauen färben (Henna)</td><td>20,00 €</td></tr>
-      <tr><td>Wimpern färben</td><td>10,00 €</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <h3>Wellness Behandlungen</h3>
-    <table>
-      <tr><td>Gesichtsmassage (30min)</td><td>35,00 €</td></tr>
-      <tr><td>Lymphmassage (60min / 90min)</td><td>65,00 € / 110,00 €</td></tr>
-      <tr><td>Ganzkörpermassage (60min / 90min)</td><td>79,00 € / 99,00 €</td></tr>
-      <tr><td>Rückenmassage (30min / 60min)</td><td>40,00 € / 70,00 €</td></tr>
+      <tr><td>Lymphmassage (60min)</td><td>65,00 €</td></tr>
     </table>
   </div>
 </section>
 
 <section id="kontakt">
-  <h2>Kontakt</h2>
   <div class="card hero-card">
+    <h3>Kontakt</h3>
     <p>Karlsplatz 26, 06406 Bernburg</p>
-    <p>Telefon: <a href="tel:+491713833793" style="color: inherit; text-decoration: none;">+49 171 3833793</a></p>
-    <div style="margin-top: 15px; display: flex; gap: 15px;">
-      <a class="btn" href="https://wa.me/491713833793" target="_blank">WhatsApp</a>
-      <a class="btn" href="https://instagram.com/kleinbeautylab" target="_blank">Instagram</a>
+    <p>Telefon: +49 171 3833793</p>
+    <div style="display: flex; gap: 15px; margin-top: 10px;">
+      <a class="btn" href="https://wa.me/491713833793">WhatsApp</a>
+      <a class="btn" href="https://instagram.com/kleinbeautylab">Instagram</a>
     </div>
   </div>
 </section>
