@@ -86,6 +86,7 @@ h2{
 .preise-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-rows: 1fr; /* ДОБАВЬ ЭТО: карточки в ряду будут одной высоты */
   gap: 25px;
   align-items: stretch;
 }
@@ -136,18 +137,19 @@ td{
   vertical-align: top;
 }
 
-/* Название процедуры — Жирненькое */
+/* Название процедуры — фиксируем ширину */
 td:first-child {
   font-weight: 600;
   color: #444;
-  padding-right: 15px;
+  width: 70%; /* ДОБАВЬ ЭТО: текст не будет вылезать за 70% ширины */
+  padding-right: 10px;
 }
 
 /* Цена — Ровно справа */
 td:last-child {
   text-align: right;
   font-weight: 600;
-  white-space: nowrap;
+  white-space: nowrap; /* ДОБАВЬ ЭТО: цена не будет переноситься */
 }
 
 /* Описание мелким шрифтом */
@@ -325,28 +327,40 @@ footer{
       </table>
     </div>
 
-    <div class="card">
-      <h3>Pediküre & Maniküre</h3>
-      <table>
-        <tr><td>Klassische Pediküre</td><td>30,00 €</td></tr>
-        <tr><td>Klassische Maniküre</td><td>20,00 €</td></tr>
-        <tr><td>Pediküre mit Gel</td><td>40,00 €</td></tr>
-        <tr><td>Maniküre mit Gel</td><td>35,00 €</td></tr>
-        <tr><td>Nagelverlängerung</td><td>ab 40,00 €</td></tr>
-      </table>
-    </div>
+   <div class="card">
+  <h3>Pediküre & Maniküre</h3>
+  <table>
+    <tr><td>Klassische Pediküre</td><td>30,00 €</td></tr>
+    <tr><td>Klassische Maniküre</td><td>20,00 €</td></tr>
+    <tr><td>Pediküre mit Gel</td><td>40,00 €</td></tr>
+    <tr><td>Maniküre mit Gel</td><td>35,00 €</td></tr>
+    <tr><td>Nagelverlängerung</td><td>ab 40,00 €</td></tr>
+  </table>
+</div>
 
-    <div class="card">
-      <h3>Wimpernverlängerung</h3>
-      <table>
-        <tr><td>Neuanlage Volumen</td><td>129,00 €</td></tr>
-        <tr><td>Neuanlage 1:1 Technik</td><td>99,00 €</td></tr>
-        <tr><td>Auffüllen 1:1 (2/3/4 Wochen)</td><td>40/49/59 €</td></tr>
-        <tr><td>Auffüllen Volumen (2/3/4 Wochen)</td><td>44/53/63 €</td></tr>
-        <tr><td>Wimpern entfernen</td><td>10,00 €</td></tr>
-        <tr><td>Wimpernshampoo</td><td>19,00 €</td></tr>
-      </table>
-    </div>
+  <div class="card">
+  <h3>Wimpernverlängerung</h3>
+  <table>
+    <tr><td>Neuanlage Volumen</td><td>129,00 €</td></tr>
+    <tr><td>Neuanlage 1:1 Technik</td><td>99,00 €</td></tr>
+    <tr>
+      <td>
+        Auffüllen 1:1<br>
+        <small style="color: #666; font-size: 0.8em; font-weight: 300;">nach 2/3/4 Wochen</small>
+      </td>
+      <td>40/49/59 €</td>
+    </tr>
+    <tr>
+      <td>
+        Auffüllen Volumen<br>
+        <small style="color: #666; font-size: 0.8em; font-weight: 300;">nach 2/3/4 Wochen</small>
+      </td>
+      <td>44/53/63 €</td>
+    </tr>
+    <tr><td>Wimpern entfernen</td><td>10,00 €</td></tr>
+    <tr><td>Wimpernshampoo</td><td>19,00 €</td></tr>
+  </table>
+</div>
 
     <div class="card">
       <h3>Wimpern Styling</h3>
