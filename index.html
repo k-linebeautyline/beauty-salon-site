@@ -44,7 +44,8 @@ nav{
 }
 
 .logo img{
-  max-height:200px;
+  height:150px;
+  width:auto;
 }
 
 .links a{
@@ -117,6 +118,14 @@ footer{
   font-size:14px;
   color:#777;
 }
+#kontakt a{
+  color: var(--text);
+  text-decoration: none;
+}
+
+#kontakt a:hover{
+  opacity: .7;
+}
 </style>
 </head>
 
@@ -154,26 +163,199 @@ footer{
 
 <section id="preise">
   <h2>Preise</h2>
-  <div class="card">
-    <table>
-      <tr><td>Gesichtsbehandlung</td><td>ab 100 €</td></tr>
-      <tr><td>Wimpernverlängerung</td><td>ab 129 €</td></tr>
-    </table>
+
+  <div class="preise-grid">
+
+    <div class="card">
+      <h3>Gesichtsbehandlungen</h3>
+      <table>
+        <tr>
+          <td>
+            Microneedling<br>
+            <small style="color: #666; font-size: 0.85em;">(bereits nach der ersten Gesichtsbehandlung eine straffere, festere, jugendlichere und frischer aussehende Haut)</small>
+          </td>
+          <td>99,00 €</td>
+        </tr>
+        <tr>
+          <td>
+            Classic<br>
+            <small style="color: #666; font-size: 0.85em;">(abgestimmt auf Ihr Hautbedürfnis verwöhnen wir Sie mit Produkten aus der Babor | Circadia Serie und mit einer einzigartigen Massage & Augenbrauen zupfen)</small>
+          </td>
+          <td>60,00 €</td>
+        </tr>
+        <tr><td>Enzyme Pilling</td><td>10,00 €</td></tr>
+        <tr><td>Gel-Based Pilling</td><td>25,00 €</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Akne / Rosacea</h3>
+      <table>
+        <tr>
+          <td>
+            Circadia Oxygen RX<br>
+            <small style="color: #666; font-size: 0.85em;">reiner Sauerstoff wird aufgetragen in Kombination mit speziellen Seren und Wirkstoffen - fördert Durchblutung, regt Zellregeneration an und entzündungshemmende Effekte (inkl. Enzyme & Heimpflegeplan)</small>
+          </td>
+          <td>129,00 €</td>
+        </tr>
+        <tr><td>Circadia Oxygen RX 6er Kur</td><td>674,00 €</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Luxury Anti Aging</h3>
+      <table>
+        <tr>
+          <td>
+            Circadia Firming Peptide Mask<br>
+            <small style="color: #666; font-size: 0.85em;">(inkl. Enzyme) enthält Peptide, die als Bausteine von Proteinen in der Haut wirken und die Kollagenproduktion anregen - dadurch straffere Haut und Faltenreduktion</small>
+          </td>
+          <td>89,00 €</td>
+        </tr>
+        <tr><td>Circadia Firming Peptide Mask 6er Kur</td><td>434,00 €</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Circadia SWiCH™</h3>
+      <table>
+        <tr>
+          <td>
+            Behandlung<br>
+            <small style="color: #666; font-size: 0.85em;">Dieses Anti-Aging Treatment arbeitet mit dem natürlichen Reparaturmechanismus der Haut, ohne sie dabei zu schädigen. Eine hervorragende Alternative zu chemischen Peelings. SWiCH™ nutzt die biologischen Stoffwechselprozesse die auf natürliche Weise in jeder Zelle des Körpers die Energieproduktion stimulieren.</small>
+          </td>
+          <td>99,00 €</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Pediküre & Maniküre</h3>
+      <table>
+        <tr><td>Klassische Pediküre</td><td>30,00 €</td></tr>
+        <tr><td>Klassische Maniküre</td><td>20,00 €</td></tr>
+        <tr><td>Pediküre mit Gel</td><td>40,00 €</td></tr>
+        <tr><td>Maniküre mit Gel</td><td>35,00 €</td></tr>
+        <tr><td>Nagelverlängerung</td><td>ab 40,00 €</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Wimpernverlängerung</h3>
+      <table>
+        <tr><td>Neuanlage Volumen</td><td>129,00 €</td></tr>
+        <tr><td>Neuanlage 1:1 Technik</td><td>99,00 €</td></tr>
+        <tr><td>Auffüllen 1:1 (2/3/4 Wochen)</td><td>40/49/59 €</td></tr>
+        <tr><td>Auffüllen Volumen (2/3/4 Wochen)</td><td>44/53/63 €</td></tr>
+        <tr><td>Wimpern entfernen</td><td>10,00 €</td></tr>
+        <tr><td>Wimpernshampoo</td><td>19,00 €</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Wimpern Styling</h3>
+      <table>
+        <tr><td>Lashlift (inkl. färben)</td><td>60,00 €</td></tr>
+        <tr><td>Wimpern färben</td><td>10,00 €</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Augenbrauen Styling</h3>
+      <table>
+        <tr><td>Browlift</td><td>60,00 €</td></tr>
+        <tr><td>Augenbrauen färben (Henna)</td><td>20,00 €</td></tr>
+        <tr><td>Augenbrauen zupfen</td><td>10,00 €</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Wellness Behandlungen</h3>
+      <table>
+        <tr>
+          <td>
+            Gesichtsmassage (30min)<br>
+            <small style="color: #666; font-size: 0.85em;">(verbessert den Lymphfluss und wirkt so gegen geschwollene oder müde Augen. Eine Gesichtsmassage regt die Durchblutung an und kann einen strahlenden Teint verbessern)</small>
+          </td>
+          <td>35,00 €</td>
+        </tr>
+        <tr>
+          <td>
+            Lymphmassage (60min / 90min)<br>
+            <small style="color: #666; font-size: 0.85em;">(Dabei wird der Transport der Lymphflüssigkeit in den Lymphgefäßen durch sanfte Grifftechniken angeregt. Für Gesicht, Arme, Rücken und Beine)</small>
+          </td>
+          <td>65,00 € / 110,00 €</td>
+        </tr>
+        <tr>
+          <td>
+            Ganzkörpermassage (60min / 90min)<br>
+            <small style="color: #666; font-size: 0.85em;">(Massage des Rückens, der Beine, der Arme, des Bauches, der Hände, der Füße, des Gesichts, des Kopfes, der Schultern und des Nackens. Lassen Sie sich voll und ganz verwöhnen)</small>
+          </td>
+          <td>79,00 € / 99,00 €</td>
+        </tr>
+        <tr>
+          <td>
+            Rückenmassage (30min / 60min)<br>
+            <small style="color: #666; font-size: 0.85em;">(Schlaff? Müde? Verspannt? Alltag für viele. Wirken Sie dem entgegen und lassen Sie sich verwöhnen und Verspannungen lösen)</small>
+          </td>
+          <td>40,00 € / 70,00 €</td>
+        </tr>
+      </table>
+    </div>
+
   </div>
 </section>
 
 <section id="kontakt">
   <h2>Kontakt</h2>
+
   <div class="card">
+
     <p>Karlsplatz 26, 06406 Bernburg</p>
-    <p>Telefon: +49 171 3833793</p>
-    <p>E-mail: info@k-linebeautylab.de</p>
-    <a class="btn" href="https://wa.me/491713833793">WhatsApp</a>
+
+    <p>
+      Telefon:
+      <a href="tel:+491713833793">+49 171 3833793</a>
+    </p>
+
+    <p>
+      E-mail:
+      <a href="mailto:info@k-linebeautylab.de">
+        info@k-linebeautylab.de
+      </a>
+    </p>
+
+    <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;">
+      <a class="btn" href="https://wa.me/491713833793" target="_blank">
+        WhatsApp
+      </a>
+
+      <a class="btn" href="https://instagram.com/kleinbeautylab" target="_blank">
+        Instagram
+      </a>
+    </div>
+
+    <div style="margin-top:25px; border-radius:18px; overflow:hidden; border:1px solid var(--line);">
+      <iframe
+        src="https://www.google.com/maps?q=Karlsplatz%2026%2C%2006406%20Bernburg&output=embed"
+        width="100%"
+        height="260"
+        style="border:0;"
+        loading="lazy">
+      </iframe>
+    </div>
+
   </div>
 </section>
 
 <footer>
 © 2026 K-Line Beauty Lab
+
+<br><br>
+
+<a href="impressum.html">Impressum</a> |
+<a href="datenschutz.html">Datenschutz</a>
+
 </footer>
 
 </body>
