@@ -1,12 +1,3 @@
-<!doctype html>
-<html lang="de">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>K-Line Beauty Lab</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-
 <style>
 :root {
   --bg: #d9d3cc;
@@ -24,7 +15,6 @@ html, body {
   padding: 0; 
   width: 100%; 
   overflow-x: hidden; 
-  scroll-behavior: smooth;
 }
 
 body {
@@ -53,7 +43,6 @@ nav {
   align-items: center;
 }
 
-/* ЛОГОТИП (ровно 150px) */
 .logo img { 
   height: 150px; 
   width: auto; 
@@ -88,11 +77,22 @@ h2 { font-size: clamp(28px, 6vw, 38px); margin-bottom: 30px; }
   margin-bottom: 30px; 
 }
 
-/* ТАБЛИЦЫ */
-table { width: 100%; border-collapse: collapse; }
-td { padding: 18px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+/* ТАБЛИЦЫ: Фикс плавающих колонок */
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  table-layout: fixed; /* Строго фиксирует ширину колонок */
+}
+
+td { 
+  padding: 18px 0; 
+  border-bottom: 1px solid var(--line); 
+  vertical-align: top; 
+  word-wrap: break-word;
+}
 
 td:first-child { 
+  width: 75%; /* Задаем четкую ширину для названий */
   font-family: 'Cormorant Garamond', serif; 
   font-size: 20px; 
   color: var(--silver);
@@ -100,6 +100,7 @@ td:first-child {
 }
 
 td:last-child { 
+  width: 25%; /* Задаем четкую ширину для цен */
   text-align: right; 
   font-weight: 500; 
   color: var(--silver);
@@ -109,7 +110,6 @@ td:last-child {
 
 small { display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; color: #888; margin-top: 6px; line-height: 1.4; }
 
-/* КНОПКА */
 .btn {
   display: inline-flex;
   padding: 12px 35px;
@@ -123,38 +123,27 @@ small { display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; 
 }
 .btn:hover { background: var(--silver); color: white; }
 
-/* МОБИЛЬНАЯ АДАПТАЦИЯ */
-@media (max-width: 768px) {
-  nav { 
-    flex-direction: column; 
-    gap: 15px; 
-    padding: 10px; 
-  }
-  
-  .logo img { height: 150px; } /* Логотип остается большим */
-  
-  .links { gap: 15px; }
-  
-  .card { padding: 25px; }
-
-  /* Таблица превращается в удобные блоки для телефона */
-  tr { display: flex; flex-direction: column; padding: 15px 0; border-bottom: 1px solid var(--line); }
-  td { border: none !important; width: 100% !important; padding: 0 !important; }
-  td:last-child { text-align: left !important; margin-top: 8px; font-size: 19px; color: #000; }
-  
-  h1 { text-align: center; }
+/* КАТЕГОРИИ: Название и Цена в одну строку */
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--line);
+  margin-top: 35px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
 }
 
-.map-container {
-  width: 100%;
-  height: 350px;
-  border-radius: 15px;
-  overflow: hidden;
-  margin-top: 25px;
-  border: 1px solid var(--line);
+.category-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--silver);
+  font-weight: 500;
+  white-space: nowrap;
+  margin-left: 15px;
 }
 
-/* Сетка для услуг: возвращаем в ряд */
+/* СЕТКА УСЛУГ */
 .grid { 
   display: grid; 
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -172,38 +161,35 @@ small { display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; 
 
 .grid h3 { text-align: center; border: none; }
 
-/* Заголовок категории и цена в одну строку */
-.category-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* Выравнивание по центру строки */
-  border-bottom: 1px solid var(--line);
-  margin-top: 35px;
-  margin-bottom: 10px;
-  padding-bottom: 5px;
+/* МОБИЛЬНАЯ АДАПТАЦИЯ: Фикс плавающего контента */
+@media (max-width: 768px) {
+  nav { flex-direction: column; gap: 15px; padding: 10px; }
+  .logo img { height: 130px; } /* Чуть компактнее на мобильном */
+  .links { gap: 15px; font-size: 14px; }
+  .card { padding: 25px; }
+
+  /* Таблицы становятся списком, чтобы не вылезать за экран */
+  tr { display: flex; flex-direction: column; padding: 10px 0; }
+  td { width: 100% !important; border: none !important; padding: 0 !important; }
+  td:last-child { 
+    text-align: left !important; 
+    margin-top: 5px; 
+    font-size: 19px; 
+    color: #000; 
+    border-bottom: 1px solid var(--line) !important;
+    padding-bottom: 10px !important;
+  }
 }
 
-.category-header h4 {
-  margin: 0;
-  flex: 1; /* Название занимает все место слева */
-}
-
-.category-price {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  color: var(--silver);
-  font-weight: 500;
-  white-space: nowrap; /* Цена не переносится */
-  margin-left: 15px;
-}
-
-/* Мобильная адаптация для заголовков категорий */
-@media (max-width: 480px) {
-  .category-price { font-size: 18px; }
-  .category-header h4 { font-size: 16px; }
+.map-container {
+  width: 100%;
+  height: 350px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 25px;
+  border: 1px solid var(--line);
 }
 </style>
-</head>
 
 <body>
 
