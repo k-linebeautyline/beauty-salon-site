@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AM Kosmetikstudio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#d9d3cc;          /* greige */
+  --card:#ece7e1;
+  --silver:#c4c4c4;
+  --text:#3f3f3f;
+  --line:#cfc7bf;
+  --radius:18px;
+  --max:1100px;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Montserrat', sans-serif;
+  letter-spacing:.3px;
+}
+
+header{
+  border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.4);
+  backdrop-filter:blur(6px);
+}
+
+nav{
+  max-width:var(--max);
+  margin:auto;
+  padding:25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo img{
+  height:70px;
+}
+
+.links a{
+  margin-left:25px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:300;
+}
+
+.links a:hover{
+  opacity:.6;
+}
+
+section{
+  max-width:var(--max);
+  margin:60px auto;
+  padding:0 25px;
+}
+
+h1{
+  font-family:'Cormorant Garamond', serif;
+  font-size:56px;
+  font-weight:300;
+  color:var(--silver);
+  margin-bottom:10px;
+}
+
+h2{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:400;
+  font-size:34px;
+  margin-bottom:20px;
+}
+
+.card{
+  background:var(--card);
+  padding:40px;
+  border-radius:var(--radius);
+}
+
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 28px;
+  border:1px solid var(--text);
+  border-radius:40px;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:var(--text);
+  color:white;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px;
+}
+
+td{
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+}
+
+footer{
+  text-align:center;
+  padding:50px 20px;
+  font-size:14px;
+  color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+  <div class="logo">
+    <!-- ВСТАВИТЬ ЛОГО -->
+    <img src="logo.png" alt="Logo">
+  </div>
+  <div class="links">
+    <a href="#leistungen">Leistungen</a>
+    <a href="#preise">Preise</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+</nav>
+</header>
+
+<section>
+  <div class="card">
+    <h1>Pure Eleganz. Sanfte Pflege.</h1>
+    <p>Willkommen im AM Kosmetikstudio – Ihr Ort für hochwertige Beauty-Behandlungen.</p>
+    <a class="btn" href="https://wa.me/491234567890">Termin buchen</a>
+  </div>
+</section>
+
+<section id="leistungen">
+  <h2>Leistungen</h2>
+  <div class="card">
+    <p>Gesichtsbehandlungen</p>
+    <p>Wimpernlifting & Brows</p>
+    <p>Maniküre & Pflege</p>
+  </div>
+</section>
+
+<section id="preise">
+  <h2>Preise</h2>
+  <div class="card">
+    <table>
+      <tr><td>Gesichtsbehandlung</td><td>ab 49 €</td></tr>
+      <tr><td>Wimpernlifting</td><td>ab 45 €</td></tr>
+      <tr><td>Maniküre</td><td>ab 25 €</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="kontakt">
+  <h2>Kontakt</h2>
+  <div class="card">
+    <p>Musterstraße 12, 12345 Musterstadt</p>
+    <p>Telefon: +49 123 4567890</p>
+    <a class="btn" href="https://wa.me/491234567890">WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+© 2026 AM Kosmetikstudio
+</footer>
+
+</body>
+</html>
