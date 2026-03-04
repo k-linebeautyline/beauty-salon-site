@@ -2,89 +2,115 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>K-Line Beauty Lab</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --bg:#d9d3cc;
-  --card:#ece7e1;
-  --silver: #5a5a5a; /* Тот самый цвет темного серебра */
-  --text-soft:#6f6f73;
-  --line:#cfc7bf;
-  --max:1100px;
+:root {
+  --bg: #d9d3cc;
+  --card: #ece7e1;
+  --silver: #5a5a5a; 
+  --text-soft: #6f6f73;
+  --line: #cfc7bf;
+  --max: 1100px;
 }
 
-*{box-sizing:border-box}
+/* Общие настройки для стабильности */
+* { box-sizing: border-box; }
+html, body { 
+  margin: 0; 
+  padding: 0; 
+  width: 100%; 
+  overflow-x: hidden; 
+  scroll-behavior: smooth;
+}
 
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text-soft);
-  font-family:'Montserrat', sans-serif;
+body {
+  background: var(--bg);
+  color: var(--text-soft);
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
 }
 
-/* ШАПКА: Лого слева, Меню справа */
-header{
-  background:rgba(255,255,255,0.5);
-  backdrop-filter:blur(10px);
+/* ШАПКА */
+header {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid var(--line);
 }
 
-nav{ 
-  max-width:var(--max);
-  margin:auto;
-  padding:10px 25px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+nav { 
+  max-width: var(--max);
+  margin: auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo img{ height:200px; width:auto; }
+/* ЛОГОТИП (ровно 150px) */
+.logo img { 
+  height: 150px; 
+  width: auto; 
+  display: block; 
+}
 
-.links { display: flex; gap: 30px; }
-.links a{ 
-  text-decoration:none; 
+.links { display: flex; gap: 25px; }
+.links a { 
+  text-decoration: none; 
   color: var(--silver); 
   font-size: 15px; 
-  font-weight: 400;
+  font-weight: 500;
 }
 
-section{ max-width:var(--max); margin:50px auto; padding:0 20px; }
+/* СЕКЦИИ */
+section { max-width: var(--max); margin: 40px auto; padding: 0 20px; }
 
-/* ЛЮКСОВЫЕ ЗАГОЛОВКИ СЛЕВА */
 h1, h2, h3, h4 {
-  font-family:'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond', serif;
   color: var(--silver);
   font-weight: 400;
-  text-align: left;
   margin-top: 0;
 }
 
-h1{ font-size: clamp(34px, 7vw, 52px); margin-bottom: 20px; }
-h2{ font-size: 38px; margin-bottom: 30px; }
-h3{ font-size: 30px; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 25px; }
-h4{ font-size: 20px; text-transform: uppercase; letter-spacing: 2px; margin-top: 35px; }
+h1 { font-size: clamp(30px, 8vw, 52px); margin-bottom: 20px; }
+h2 { font-size: clamp(28px, 6vw, 38px); margin-bottom: 30px; }
 
-.card{ 
-  background:var(--card); 
-  padding:45px; 
-  border-radius:25px; 
+.card { 
+  background: var(--card); 
+  padding: 40px; 
+  border-radius: 25px; 
   margin-bottom: 30px; 
 }
 
-/* ПРИВЕТСТВИЕ */
-.hero-card { align-items: flex-start; display: flex; flex-direction: column; }
-.hero-card p { font-size: 18px; margin-bottom: 25px; }
+/* ТАБЛИЦЫ */
+table { width: 100%; border-collapse: collapse; }
+td { padding: 18px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
 
-/* ИЗЯЩНАЯ КНОПКА */
-.btn{
+td:first-child { 
+  font-family: 'Cormorant Garamond', serif; 
+  font-size: 20px; 
+  color: var(--silver);
+  padding-right: 15px;
+}
+
+td:last-child { 
+  text-align: right; 
+  font-weight: 500; 
+  color: var(--silver);
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+small { display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; color: #888; margin-top: 6px; line-height: 1.4; }
+
+/* КНОПКА */
+.btn {
   display: inline-flex;
   padding: 12px 35px;
   border: 1px solid var(--silver);
@@ -93,38 +119,32 @@ h4{ font-size: 20px; text-transform: uppercase; letter-spacing: 2px; margin-top:
   color: var(--silver);
   font-size: 14px;
   transition: .3s;
+  margin-top: 10px;
 }
-.btn:hover{ background:var(--silver); color:white; }
+.btn:hover { background: var(--silver); color: white; }
 
-/* ТАБЛИЦЫ ЦЕН */
-table{ width:100%; border-collapse:collapse; margin-top: 10px; }
-td{ padding:18px 0; border-bottom:1px solid var(--line); vertical-align: top; }
-td:first-child{ 
-  font-family: 'Cormorant Garamond', serif; 
-  font-size: 20px; 
-  color: var(--silver);
-  width: 75%; 
-}
-td:last-child{ 
-  text-align: right; 
-  font-weight: 400; 
-  color: var(--silver);
-  font-size: 18px;
-}
-small{ display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; color: #888; margin-top: 6px; font-weight: 300; line-height: 1.4; }
+/* МОБИЛЬНАЯ АДАПТАЦИЯ */
+@media (max-width: 768px) {
+  nav { 
+    flex-direction: column; 
+    gap: 15px; 
+    padding: 10px; 
+  }
+  
+  .logo img { height: 150px; } /* Логотип остается большим */
+  
+  .links { gap: 15px; }
+  
+  .card { padding: 25px; }
 
-/* СЕТКА ДЛЯ LEISTUNGEN */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.grid .card { text-align: center; }
-.grid h3 { text-align: center; border: none; }
-
-@media (max-width: 768px){
-  nav { padding: 10px 15px; }
-  .links { gap: 15px; font-size: 13px; }
-  .logo img { height: 55px; }
-  .card { padding: 30px; }
+  /* Таблица превращается в удобные блоки для телефона */
+  tr { display: flex; flex-direction: column; padding: 15px 0; border-bottom: 1px solid var(--line); }
+  td { border: none !important; width: 100% !important; padding: 0 !important; }
+  td:last-child { text-align: left !important; margin-top: 8px; font-size: 19px; color: #000; }
+  
+  h1 { text-align: center; }
 }
-/* КАРТА */
+
 .map-container {
   width: 100%;
   height: 350px;
@@ -190,17 +210,15 @@ small{ display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; c
     </table>
 
     <div class="category-header">
-      <h4>AKNE / ROSACEA</h4>
-      <div class="category-price">129,00 €</div>
+      <tr><td>AKNE / ROSACEA<td></td>129,00 €</td></tr>
     </div>
     <table>
       <tr><td>CIRCADIA OXYGEN RX<small>reiner Sauerstoff wird aufgetragen in Kombination mit speziellen Seren und Wirkstoffen - fördert Durchblutung, regt Zellregeneration an und entzündungshemmende Effekte (inkl. Enzyme & Heimpflegeplan)</small></td><td></td></tr>
-      <tr><td>CIRCADIA OXYGEN RX 6er Kur<small>(inkl. Heimpflege-Set)</small></td><td>674,00 €</td></tr>
+      <tr><td>CIRCADIA OXYGEN RX 6er Kur</td></tr>
     </table>
 
     <div class="category-header">
-      <h4>LUXURY ANTI AGING</h4>
-      <div class="category-price">674,00 €</div>
+      <tr><td>LUXURY ANTI AGING<td></td>674,00 €</td></tr>
     </div>
     <table>
       <tr><td>CIRCADIA FIRMING PEPTIDE MASK<small>(inkl. Enzyme) enthält Peptide, die als Bausteine von Proteinen in der Haut wirken und die Kollagenproduktion anregen - dadurch straffere Haut und Faltenreduktion</small></td><td>89,00 €</td></tr>
@@ -208,13 +226,16 @@ small{ display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; c
     </table>
 
     <div class="category-header">
-      <h4>Circadia SWiCH™</h4>
-      <div class="category-price">99 €</div>
+      <tr><td>Circadia SWiCH™<td></td>99,00 €</td></tr>
     </div>
     <table>
-      <tr><td>Behandlung<small>Dieses Anti-Aging Treatment arbeitet mit dem natürlichen Reparaturmechanismus der Haut, ohne sie dabei zu schädigen. Eine hervorragende Alternative zu chemischen Peelings. SWiCH™ nutzt die biologischen Stoffwechselprozesse die auf natürliche Weise in jeder Zelle des Körpers die Energieproduktion stimulieren.</small></td><td></td></tr>
+      <tr>
+        <td>
+          <small>Dieses Anti-Aging Treatment arbeitet mit dem natürlichen Reparaturmechanismus der Haut, ohne sie dabei zu schädigen. Eine hervorragende Alternative zu chemischen Peelings. SWiCH™ nutzt die biologischen Stoffwechselprozesse die auf natürliche Weise in jeder Zelle des Körpers die Energieproduktion stimulieren.</small>
+        </td>
+        <td></td>
+      </tr>
     </table>
-  </div>
 
   <div class="card">
     <h3>Wimpern & Augenbrauen</h3>
