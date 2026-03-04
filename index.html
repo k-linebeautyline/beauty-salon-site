@@ -11,8 +11,9 @@
 :root{
   --bg:#d9d3cc;
   --card:#ece7e1;
-  --headline-dark: #222222; /* Глубокий темный для четкости */
-  --text-main:#4f4f52;
+  /* Цвет темного серебра как на твоем макете */
+  --silver-text: #5a5a5a; 
+  --text-main:#6f6f73;
   --line:#cfc7bf;
   --radius:18px;
   --max:1100px;
@@ -31,7 +32,7 @@ body{
 
 header{
   border-bottom:1px solid var(--line);
-  background:rgba(255,255,255,0.8);
+  background:rgba(255,255,255,0.6);
   backdrop-filter:blur(10px);
   position: sticky;
   top: 0;
@@ -47,67 +48,106 @@ nav{
   align-items:center;
 }
 
-.logo img{ height:70px; width:auto; display: block; }
+.logo img{ height:80px; width:auto; display: block; }
 
-.links { display: flex; gap: 25px; }
-.links a{ text-decoration:none; color: var(--headline-dark); font-weight: 500; font-size: 14px; transition: 0.3s; }
-.links a:hover { opacity: 0.6; }
+/* Меню справа */
+.links { display: flex; gap: 30px; }
+.links a{ 
+  text-decoration:none; 
+  color: var(--silver-text); 
+  font-weight: 400; 
+  font-size: 15px; 
+}
 
 section{ max-width:var(--max); margin:40px auto; padding:0 20px; }
 
+/* Заголовки СЛЕВА и цветом темного серебра */
 h1{
   font-family:'Cormorant Garamond', serif;
-  font-size: clamp(30px, 8vw, 52px);
-  font-weight:400;
-  color: var(--headline-dark); 
+  font-size: clamp(34px, 7vw, 56px);
+  font-weight:300;
+  color: var(--silver-text); 
   margin-bottom:15px;
-  line-height: 1.1;
+  text-align: left;
 }
 
-h2{ font-family:'Cormorant Garamond', serif; font-size:32px; margin-bottom:25px; text-align: center; color: var(--headline-dark); }
+h2{ 
+  font-family:'Cormorant Garamond', serif; 
+  font-size:36px; 
+  margin-bottom:25px; 
+  text-align: left; 
+  color: var(--silver-text); 
+}
 
-.card{ background:var(--card); padding:35px; border-radius:var(--radius); margin-bottom: 25px; }
+.card{ 
+  background:var(--card); 
+  padding:40px; 
+  border-radius:var(--radius); 
+  margin-bottom: 25px; 
+}
 
-.hero-card { text-align: center; align-items: center; display: flex; flex-direction: column; }
+/* Приветственный блок: текст и кнопка слева */
+.hero-card { 
+  text-align: left; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start; 
+}
 
-/* КНОПКА */
+/* Аккуратная кнопка */
 .btn{
   display: inline-flex;
-  padding: 12px 35px;
-  border: 1px solid var(--headline-dark);
+  padding: 10px 30px;
+  border: 1px solid var(--silver-text);
   border-radius: 40px;
   text-decoration: none;
-  color: var(--headline-dark);
-  font-weight: 500;
+  color: var(--silver-text);
+  font-weight: 400;
   font-size: 14px;
   transition: .3s;
   margin-top: 15px;
 }
-.btn:hover{ background:var(--headline-dark); color:white; }
+.btn:hover{ background:var(--silver-text); color:white; }
 
-/* СЕТКА УСЛУГ */
+/* Сетка для Leistungen */
 .preise-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-bottom: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
 }
 
-/* ТАБЛИЦЫ ЦЕН */
-h3 { font-family:'Cormorant Garamond', serif; font-size: 26px; color: #333; margin-top: 0; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+h3 { 
+  font-family:'Cormorant Garamond', serif; 
+  font-size: 28px; 
+  color: var(--silver-text); 
+  margin-top: 0; 
+  border-bottom: 1px solid var(--line); 
+  padding-bottom: 10px; 
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+h4 { 
+  font-family:'Cormorant Garamond', serif; 
+  font-size: 20px; 
+  color: #555; 
+  margin: 30px 0 10px 0; 
+  text-transform: uppercase; 
+  letter-spacing: 1px;
+}
+
 table{ width:100%; border-collapse:collapse; }
 td{ padding:15px 0; border-bottom:1px solid var(--line); vertical-align: top; }
-td:first-child{ font-weight: 600; color: #333; padding-right: 15px; width: 75%; }
-td:last-child{ text-align: right; white-space: nowrap; font-weight: 600; color: #333; }
-small{ display: block; font-weight: 300; font-size: 12px; margin-top: 5px; color: #666; line-height: 1.4; }
+td:first-child{ font-weight: 600; color: #444; padding-right: 20px; width: 70%; }
+td:last-child{ text-align: right; white-space: nowrap; font-weight: 600; color: #444; }
+small{ display: block; font-weight: 300; font-size: 13px; margin-top: 5px; color: #777; }
 
 @media (max-width: 768px){
   nav { padding: 10px 15px; }
-  .logo img { height: 50px; }
-  .links { gap: 12px; }
-  .links a { font-size: 12px; }
+  .logo img { height: 60px; }
+  .links { gap: 15px; }
+  h1, h2 { text-align: left; }
   .card { padding: 25px; }
-  section { margin: 25px auto; }
 }
 </style>
 </head>
@@ -137,15 +177,15 @@ small{ display: block; font-weight: 300; font-size: 12px; margin-top: 5px; color
   <h2>Leistungen</h2>
   <div class="preise-grid"> 
     <div class="card" style="text-align: center;">
-      <h3 style="border:none;">Hautpflege</h3>
+      <h3 style="border:none; text-align: center;">Hautpflege</h3>
       <p>Individuelle Gesichtsbehandlungen für ein strahlendes Ergebnis.</p>
     </div>
     <div class="card" style="text-align: center;">
-      <h3 style="border:none;">Augenblick</h3>
+      <h3 style="border:none; text-align: center;">Augenblick</h3>
       <p>Professionelle Wimpernverlängerung и Browlifting.</p>
     </div>
     <div class="card" style="text-align: center;">
-      <h3 style="border:none;">Wohlbefinden</h3>
+      <h3 style="border:none; text-align: center;">Wohlbefinden</h3>
       <p>Entspannung pur в уютной атмосфере моей студии.</p>
     </div>
   </div>
@@ -156,34 +196,30 @@ small{ display: block; font-weight: 300; font-size: 12px; margin-top: 5px; color
 
   <div class="card">
     <h3>Gesichtsbehandlungen</h3>
+    
+    <h4>Basis & Spezial</h4>
     <table>
-      <tr><td>MICRONEEDLING<small>(bereits nach der ersten Gesichtsbehandlung eine straffere, festere, jugendlichere и frischer aussehende Haut)</small></td><td>99,00 €</td></tr>
+      <tr><td>MICRONEEDLING<small>(bereits nach der ersten Behandlung eine straffere Haut)</small></td><td>99,00 €</td></tr>
       <tr><td>CLASSIC<small>(Massage & Augenbrauen zupfen, Babor | Circadia Produkte)</small></td><td>60,00 €</td></tr>
       <tr><td>Enzyme Pilling</td><td>10,00 €</td></tr>
       <tr><td>Gel-Based Pilling</td><td>25,00 €</td></tr>
     </table>
-  </div>
 
-  <div class="card">
-    <h3>Akne / Rosacea</h3>
+    <h4>Akne / Rosacea</h4>
     <table>
       <tr><td>CIRCADIA OXYGEN RX<small>(reiner Sauerstoff fördert Durchblutung & Zellregeneration)</small></td><td>129,00 €</td></tr>
       <tr><td>CIRCADIA OXYGEN RX 6er Kur</td><td>674,00 €</td></tr>
     </table>
-  </div>
 
-  <div class="card">
-    <h3>Luxury Anti Aging</h3>
+    <h4>Luxury Anti Aging</h4>
     <table>
       <tr><td>CIRCADIA FIRMING PEPTIDE MASK<small>(regt Kollagenproduktion an)</small></td><td>89,00 €</td></tr>
       <tr><td>CIRCADIA FIRMING PEPTIDE MASK 6er Kur</td><td>434,00 €</td></tr>
     </table>
-  </div>
 
-  <div class="card">
-    <h3>Circadia SWiCH™</h3>
+    <h4>Circadia SWiCH™</h4>
     <table>
-      <tr><td>Behandlung<small>(Anti-Aging ohne Hautschädigung, nutzt Stoffwechselprozesse zur Energieproduktion)</small></td><td>99,00 €</td></tr>
+      <tr><td>Behandlung<small>(Anti-Aging Alternative zu Peelings)</small></td><td>99,00 €</td></tr>
     </table>
   </div>
 
@@ -199,35 +235,23 @@ small{ display: block; font-weight: 300; font-size: 12px; margin-top: 5px; color
   </div>
 
   <div class="card">
-    <h3>Wimpernverlängerung</h3>
-    <table>
-      <tr><td>Neuanlage Volumen</td><td>129,00 €</td></tr>
-      <tr><td>Neuanlage 1:1 Technik</td><td>99,00 €</td></tr>
-      <tr><td>Auffüllen 1:1 (2/3/4 Wochen)</td><td>40/49/59 €</td></tr>
-      <tr><td>Auffüllen Volumen (2/3/4 Wochen)</td><td>44/53/63 €</td></tr>
-      <tr><td>Wimpern entfernen</td><td>10,00 €</td></tr>
-      <tr><td>Wimpernshampoo</td><td>19,00 €</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
     <h3>Wimpern & Brauen Styling</h3>
     <table>
+      <tr><td>Neuanlage Volumen</td><td>129,00 €</td></tr>
       <tr><td>Lashlift (inkl. färben)</td><td>60,00 €</td></tr>
-      <tr><td>Wimpern färben</td><td>10,00 €</td></tr>
       <tr><td>Browlift</td><td>60,00 €</td></tr>
       <tr><td>Augenbrauen färben (Henna)</td><td>20,00 €</td></tr>
-      <tr><td>Augenbrauen zupfen</td><td>10,00 €</td></tr>
+      <tr><td>Wimpern färben</td><td>10,00 €</td></tr>
     </table>
   </div>
 
   <div class="card">
     <h3>Wellness Behandlungen</h3>
     <table>
-      <tr><td>Gesichtsmassage (30min)<small>(verbessert Lymphfluss & Durchblutung)</small></td><td>35,00 €</td></tr>
-      <tr><td>Lymphmassage (60min / 90min)<small>(sanfte Grifftechniken für Gesicht, Arme, Rücken и Beine)</small></td><td>65,00 € / 110,00 €</td></tr>
-      <tr><td>Ganzkörpermassage (60min / 90min)<small>(vollständige Entspannung von Kopf bis Fuß)</small></td><td>79,00 € / 99,00 €</td></tr>
-      <tr><td>Rückenmassage (30min / 60min)<small>(löst Verspannungen im Alltag)</small></td><td>40,00 € / 70,00 €</td></tr>
+      <tr><td>Gesichtsmassage (30min)</td><td>35,00 €</td></tr>
+      <tr><td>Lymphmassage (60min / 90min)</td><td>65,00 € / 110,00 €</td></tr>
+      <tr><td>Ganzkörpermassage (60min / 90min)</td><td>79,00 € / 99,00 €</td></tr>
+      <tr><td>Rückenmassage (30min / 60min)</td><td>40,00 € / 70,00 €</td></tr>
     </table>
   </div>
 </section>
@@ -237,19 +261,12 @@ small{ display: block; font-weight: 300; font-size: 12px; margin-top: 5px; color
   <div class="card hero-card">
     <p>Karlsplatz 26, 06406 Bernburg</p>
     <p>Telefon: <a href="tel:+491713833793" style="color: inherit; text-decoration: none;">+49 171 3833793</a></p>
-    <p>E-Mail: <a href="mailto:info@k-linebeautylab.de" style="color: inherit; text-decoration: none;">info@k-linebeautylab.de</a></p>
-    <div style="margin-top: 20px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+    <div style="margin-top: 15px; display: flex; gap: 15px;">
       <a class="btn" href="https://wa.me/491713833793" target="_blank">WhatsApp</a>
       <a class="btn" href="https://instagram.com/kleinbeautylab" target="_blank">Instagram</a>
     </div>
   </div>
 </section>
-
-<footer>
-  <div style="text-align: center; padding: 20px;">
-    © 2026 K-Line Beauty Lab | <a href="impressum.html" style="color:inherit;">Impressum</a> | <a href="datenschutz.html" style="color:inherit;">Datenschutz</a>
-  </div>
-</footer>
 
 </body>
 </html>
