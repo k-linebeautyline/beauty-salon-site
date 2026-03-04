@@ -15,7 +15,6 @@
   --text-soft:#6f6f73;
   --line:#cfc7bf;
   --max:1100px;
-  --header-h: 90px;
 }
 
 *{box-sizing:border-box}
@@ -29,124 +28,119 @@ body{
   line-height: 1.6;
 }
 
-/* ШАПКА: Лого слева, Меню справа */
-header{
-  background:rgba(255,255,255,0.5);
-  backdrop-filter:blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid var(--line);
-  height: var(--header-h);
+/* ШАПКА - СТАТИЧНАЯ (НЕ ЕЗДИТ) */
+header {
+  background: #ffffff;
+  padding: 60px 0 20px 0;
+  text-align: center;
+}
+
+.logo img {
+  height: 140px; 
+  width: auto;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+.tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--silver);
+  text-transform: lowercase;
+  margin-bottom: 40px;
+}
+
+nav {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 20px 25px;
+  border-top: 1px solid var(--line);
   display: flex;
-  align-items: center;
+  justify-content: flex-end;
 }
 
-nav{ 
-  max-width:var(--max);
-  margin:auto;
-  padding:0 25px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  width: 100%;
-}
-
-.logo img{ height:200px; width:auto; }
-
-.links { display: flex; gap: 30px; }
-.links a{ 
-  text-decoration:none; 
+.links { display: flex; gap: 40px; }
+.links a { 
+  text-decoration: none; 
   color: var(--silver); 
   font-size: 15px; 
-  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* Чтобы меню не закрывало заголовки разделов */
+/* СЕКЦИИ */
 section { 
-  max-width:var(--max); 
-  margin:60px auto; 
-  padding:0 20px; 
-  scroll-margin-top: calc(var(--header-h) + 20px); 
+  max-width: var(--max); 
+  margin: 20px auto 60px auto; 
+  padding: 0 20px; 
 }
 
 h1, h2, h3, h4 {
-  font-family:'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond', serif;
   color: var(--silver);
   font-weight: 400;
-  text-align: left;
-  margin-top: 0;
 }
 
-h1{ font-size: clamp(34px, 7vw, 52px); margin-bottom: 20px; }
-h2{ font-size: 42px; margin-bottom: 30px; }
-h3{ font-size: 32px; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 25px; }
+h1 { font-size: clamp(30px, 5vw, 48px); text-align: center; margin-bottom: 30px; }
+h2 { font-size: 42px; margin-bottom: 30px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
 
-h4{ 
-  font-size: 18px; 
-  text-transform: uppercase; 
-  letter-spacing: 2px; 
-  margin-top: 45px; 
-  margin-bottom: 15px;
-  color: #7a7a7a;
+.card { 
+  background: var(--card); 
+  padding: 50px; 
+  border-radius: 30px; 
+  margin-bottom: 40px; 
 }
 
-.card{ 
-  background:var(--card); 
-  padding:45px; 
-  border-radius:25px; 
-  margin-bottom: 30px; 
-}
-
-.hero-card { align-items: flex-start; display: flex; flex-direction: column; }
-
-.btn{
+/* КНОПКА */
+.btn {
   display: inline-flex;
-  padding: 12px 35px;
+  padding: 14px 40px;
   border: 1px solid var(--silver);
   border-radius: 50px;
   text-decoration: none;
   color: var(--silver);
   font-size: 14px;
-  transition: .3s;
+  transition: 0.3s;
+  margin-top: 15px;
 }
-.btn:hover{ background:var(--silver); color:white; }
+.btn:hover { background: var(--silver); color: #fff; }
 
 /* ТАБЛИЦЫ */
-table{ width:100%; border-collapse:collapse; }
-td{ padding:18px 0; border-bottom:1px solid var(--line); vertical-align: top; }
-td:first-child{ 
+table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+td { padding: 18px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+td:first-child { 
   font-family: 'Cormorant Garamond', serif; 
   font-size: 22px; 
   color: var(--silver);
   width: 75%; 
 }
-td:last-child{ 
+td:last-child { 
   text-align: right; 
   color: var(--silver);
-  font-size: 20px;
+  font-size: 19px;
   white-space: nowrap;
 }
-small{ display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; color: #888; margin-top: 6px; font-weight: 300; line-height: 1.4; }
+small { display: block; font-family: 'Montserrat', sans-serif; font-size: 12px; color: #888; margin-top: 5px; line-height: 1.4; }
+
+h4 { text-transform: uppercase; letter-spacing: 2px; font-size: 15px; margin: 40px 0 10px 0; color: #888; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
 
 /* КАРТА */
 .map-container {
   width: 100%;
-  height: 400px;
-  border-radius: 20px;
+  height: 450px;
+  border-radius: 25px;
   overflow: hidden;
   margin-top: 30px;
   border: 1px solid var(--line);
 }
 
-/* СЕТКА LEISTUNGEN */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.grid .card { text-align: center; padding: 40px 25px; }
-.grid h3 { text-align: center; border: none; font-size: 28px; }
-
-@media (max-width: 768px){
-  header { height: auto; padding: 10px 0; }
-  nav { flex-direction: column; gap: 15px; }
+@media (max-width: 768px) {
+  .logo img { height: 90px; }
+  nav { justify-content: center; }
+  .links { gap: 20px; font-size: 13px; }
   .card { padding: 30px 20px; }
 }
 </style>
@@ -155,20 +149,21 @@ small{ display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; c
 <body>
 
 <header>
-<nav>
-  <div class="logo"><img src="logo.png" alt="Logo"></div>
-  <div class="links">
-    <a href="#leistungen">Leistungen</a>
-    <a href="#preise">Preise</a>
-    <a href="#kontakt">Kontakt</a>
-  </div>
-</nav>
+  <div class="logo"><img src="logo.png" alt="K-Line Beauty Lab"></div>
+  <div class="tagline">your line of beauty</div>
+  <nav>
+    <div class="links">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#preise">Preise</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </nav>
 </header>
 
 <section id="hero">
-  <div class="card hero-card">
+  <div class="card" style="text-align: center; background: #f4f1ee;">
     <h1>Willkommen im K-Line Beauty Lab</h1>
-    <p>Ihr Ort für hochwertige Beauty-Behandlungen und Entspannung.</p>
+    <p>Ihr Ort für hochwertige Beauty-Behandlungen und pure Entspannung.</p>
     <a class="btn" href="https://wa.me/491713833793">Termin buchen</a>
   </div>
 </section>
@@ -176,44 +171,44 @@ small{ display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; c
 <section id="leistungen">
   <h2>Leistungen</h2>
   <div class="grid">
-    <div class="card">
+    <div class="card" style="text-align: center;">
       <h3>Hautpflege</h3>
-      <p>Individuelle Gesichtsbehandlungen für ein strahlendes Ergebnis.</p>
+      <p>Individuelle Gesichtsbehandlungen, die genau auf Ihre Hautbedürfnisse abgestimmt sind.</p>
     </div>
-    <div class="card">
+    <div class="card" style="text-align: center;">
       <h3>Augenblick</h3>
-      <p>Professionelle Wimpernverlängerung und Browlifting.</p>
+      <p>Professionelle Wimpernverlängerung и Browlifting для выразительного взгляда.</p>
     </div>
-    <div class="card">
+    <div class="card" style="text-align: center;">
       <h3>Wohlbefinden</h3>
-      <p>Entspannung pur in gemütlicher Atmosphäre.</p>
+      <p>Массаж и уход в уютной атмосфере моей студии.</p>
     </div>
   </div>
 </section>
 
 <section id="preise">
   <h2>Preise</h2>
-
+  
   <div class="card">
-    <h3>Gesichtsbehandlungen</h3>
+    <h3 style="font-size: 30px; margin-bottom: 10px;">Gesichtsbehandlungen</h3>
     
-    <h4>Basis & Spezial</h4>
+    <h4>BASIS & SPEZIAL</h4>
     <table>
-      <tr><td>MICRONEEDLING<small>(für straffere, festere und jugendlichere Haut)</small></td><td>99,00 €</td></tr>
-      <tr><td>CLASSIC<small>(Reinigung, Massage & Augenbrauen zupfen)</small></td><td>60,00 €</td></tr>
+      <tr><td>MICRONEEDLING<small>(bereits nach der ersten Behandlung eine straffere Haut)</small></td><td>99,00 €</td></tr>
+      <tr><td>CLASSIC<small>(Massage & Augenbrauen zupfen, Babor | Circadia Produkte)</small></td><td>60,00 €</td></tr>
       <tr><td>Enzyme Pilling</td><td>10,00 €</td></tr>
       <tr><td>Gel-Based Pilling</td><td>25,00 €</td></tr>
     </table>
 
-    <h4>Akne / Rosacea</h4>
+    <h4>AKNE / ROSACEA</h4>
     <table>
-      <tr><td>CIRCADIA OXYGEN RX<small>(fördert Durchblutung & Zellregeneration)</small></td><td>129,00 €</td></tr>
+      <tr><td>CIRCADIA OXYGEN RX<small>(reiner Sauerstoff fördert Durchblutung & Zellregeneration)</small></td><td>129,00 €</td></tr>
       <tr><td>CIRCADIA OXYGEN RX 6er Kur</td><td>674,00 €</td></tr>
     </table>
 
-    <h4>Luxury Anti Aging</h4>
+    <h4>LUXURY ANTI AGING</h4>
     <table>
-      <tr><td>CIRCADIA FIRMING PEPTIDE MASK</td><td>89,00 €</td></tr>
+      <tr><td>CIRCADIA FIRMING PEPTIDE MASK<small>(regt Kollagenproduktion an)</small></td><td>89,00 €</td></tr>
       <tr><td>CIRCADIA FIRMING PEPTIDE MASK 6er Kur</td><td>434,00 €</td></tr>
     </table>
 
@@ -224,30 +219,32 @@ small{ display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; c
   </div>
 
   <div class="card">
-    <h3>Wellness & More</h3>
+    <h3 style="font-size: 30px;">Wellness & More</h3>
     <table>
       <tr><td>Klassische Pediküre</td><td>30,00 €</td></tr>
       <tr><td>Pediküre mit Gel</td><td>40,00 €</td></tr>
       <tr><td>Maniküre mit Gel</td><td>35,00 €</td></tr>
       <tr><td>Lashlift (inkl. färben)</td><td>60,00 €</td></tr>
-      <tr><td>Browlift</td><td>60,00 €</td></tr>
+      <tr><td>Browlift (inkl. färben)</td><td>60,00 €</td></tr>
+      <tr><td>Gesichtsmassage (30min)</td><td>35,00 €</td></tr>
+      <tr><td>Ganzkörpermassage (60min)</td><td>79,00 €</td></tr>
     </table>
   </div>
 </section>
 
 <section id="kontakt">
-  <div class="card hero-card">
-    <h3>Kontakt</h3>
+  <div class="card">
+    <h2>Kontakt</h2>
     <p>Karlsplatz 26, 06406 Bernburg</p>
     <p>Telefon: +49 171 3833793</p>
-    <div style="display: flex; gap: 15px; margin-bottom: 25px;">
+    <div style="display: flex; gap: 15px; margin: 30px 0;">
       <a class="btn" href="https://wa.me/491713833793" target="_blank">WhatsApp</a>
-      <a class="btn" href="https://instagram.com/k_linebeautylab" target="_blank">Instagram</a>
+      <a class="btn" href="https://instagram.com/kleinbeautylab" target="_blank">Instagram</a>
     </div>
 
     <div class="map-container">
       <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2454.444738543789!2d11.73740207722749!3d51.79815097187889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a5da790757759d%3A0x6b7727181c0c660!2sKarlsplatz%2026%2C%2006406%20Bernburg%20(Saale)%2C%20Germany!5e0!3m2!1sen!2sde!4v1709575000000!5m2!1sen!2sde" 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2449.6457335682855!2d11.73887087693521!3d51.79527749033379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a5e424269e88cb%3A0x7d6f51f50a80e07c!2sKarlsplatz%2026%2C%2006406%20Bernburg%20(Saale)!5e0!3m2!1sde!2sde!4v1709570000000!5m2!1sde!2sde" 
         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
       </iframe>
     </div>
