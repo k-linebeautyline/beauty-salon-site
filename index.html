@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AM Kosmetikstudio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --bg:#d9d3cc;          /* greige */
   --card:#ece7e1;
   --silver:#c4c4c4;
-  --text:#6f6f73;
+  --text:#5e5e5e;
   --line:#cfc7bf;
   --radius:18px;
   --max:1100px;
@@ -26,6 +26,8 @@ body{
   color:var(--text);
   font-family:'Montserrat', sans-serif;
   letter-spacing:.3px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 header{
@@ -34,7 +36,7 @@ header{
   backdrop-filter:blur(6px);
 }
 
-nav{
+nav{ 
   max-width:var(--max);
   margin:auto;
   padding:25px;
@@ -44,7 +46,7 @@ nav{
 }
 
 .logo img{
-  height:150px;
+  height:250px;
   width:auto;
 }
 
@@ -67,7 +69,7 @@ section{
 
 h1{
   font-family:'Cormorant Garamond', serif;
-  font-size:56px;
+  font-size: clamp(34px, 8vw, 56px);
   font-weight:300;
   color:var(--silver);
   margin-bottom:10px;
@@ -80,10 +82,31 @@ h2{
   margin-bottom:20px;
 }
 
+/* СЕТКА ДЛЯ ПРАЙСА */
+.preise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  align-items: stretch;
+}
+
 .card{
   background:var(--card);
   padding:40px;
   border-radius:var(--radius);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Названия разделов внутри карточек */
+.card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #444;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
 }
 
 .btn{
@@ -104,12 +127,38 @@ h2{
 table{
   width:100%;
   border-collapse:collapse;
-  margin-top:20px;
+  margin-top:10px;
 }
 
 td{
   padding:14px 0;
   border-bottom:1px solid var(--line);
+  vertical-align: top;
+}
+
+/* Название процедуры — Жирненькое */
+td:first-child {
+  font-weight: 600;
+  color: #444;
+  padding-right: 15px;
+}
+
+/* Цена — Ровно справа */
+td:last-child {
+  text-align: right;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Описание мелким шрифтом */
+td small {
+  display: block;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-top: 5px;
+  color: var(--text);
+  opacity: 0.8;
 }
 
 footer{
@@ -118,6 +167,7 @@ footer{
   font-size:14px;
   color:#777;
 }
+
 #kontakt a{
   color: var(--text);
   text-decoration: none;
@@ -125,6 +175,40 @@ footer{
 
 #kontakt a:hover{
   opacity: .7;
+}
+
+/* ✅ Mobile fixes */
+@media (max-width: 768px){
+  nav{
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .links{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .links a{
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  section{
+    margin: 28px auto;
+  }
+
+  .card{
+    padding: 22px;
+  }
+
+  .preise-grid {
+    grid-template-columns: 1fr; /* Одна колонка на мобильных */
+  }
 }
 </style>
 </head>
@@ -134,7 +218,6 @@ footer{
 <header>
 <nav>
   <div class="logo">
-    <!-- ВСТАВИТЬ ЛОГО -->
     <img src="logo.png" alt="Logo">
   </div>
   <div class="links">
@@ -148,16 +231,29 @@ footer{
 <section>
   <div class="card">
     <h1>Willkommen im K-Line Beauty Lab</h1>
-    <p>Ihr Ort für hochwertige Beauty-Behandlungen.</p>
     <a class="btn" href="https://wa.me/491713833793">Termin buchen</a>
   </div>
 </section>
 
 <section id="leistungen">
   <h2>Leistungen</h2>
-  <div class="card">
-    <p>Gesichtsbehandlungen</p>
-    <p>Wimpernverlängerung</p>
+  <div class="preise-grid"> 
+    
+    <div class="card" style="text-align: center;">
+      <h3 style="border-bottom: none;">Hautpflege</h3>
+      <p>Individuelle Gesichtsbehandlungen, die genau auf Ihre Hautbedürfnisse abgestimmt sind. Von klassischer Pflege bis hin zu intensiven Treatments für ein strahlendes Ergebnis.</p>
+    </div>
+
+    <div class="card" style="text-align: center;">
+      <h3 style="border-bottom: none;">Augenblick</h3>
+      <p>Professionelle Wimpernverlängerung und Browlifting. Ich betone Ihre natürliche Schönheit und sorge für einen ausdrucksstarken Look jeden Tag.</p>
+    </div>
+
+    <div class="card" style="text-align: center;">
+      <h3 style="border-bottom: none;">Wohlbefinden</h3>
+      <p>Gönnen Sie sich eine Auszeit vom Alltag. In einer entspannten Atmosphäre kümmere ich mich um Ihre Pflege – ob Massage, Maniküre oder Pediküre.</p>
+    </div>
+
   </div>
 </section>
 
@@ -171,15 +267,15 @@ footer{
       <table>
         <tr>
           <td>
-            Microneedling<br>
-            <small style="color: #666; font-size: 0.85em;">(bereits nach der ersten Gesichtsbehandlung eine straffere, festere, jugendlichere und frischer aussehende Haut)</small>
+            Microneedling
+            <small>(bereits nach der ersten Gesichtsbehandlung eine straffere, festere, jugendlichere и frischer aussehende Haut)</small>
           </td>
           <td>99,00 €</td>
         </tr>
         <tr>
           <td>
-            Classic<br>
-            <small style="color: #666; font-size: 0.85em;">(abgestimmt auf Ihr Hautbedürfnis verwöhnen wir Sie mit Produkten aus der Babor | Circadia Serie und mit einer einzigartigen Massage & Augenbrauen zupfen)</small>
+            Classic
+            <small>(abgestimmt auf Ihr Hautbedürfnis verwöhnen wir Sie mit Produkten aus der Babor | Circadia Serie и mit einer einzigartigen Massage & Augenbrauen zupfen)</small>
           </td>
           <td>60,00 €</td>
         </tr>
@@ -193,8 +289,8 @@ footer{
       <table>
         <tr>
           <td>
-            Circadia Oxygen RX<br>
-            <small style="color: #666; font-size: 0.85em;">reiner Sauerstoff wird aufgetragen in Kombination mit speziellen Seren und Wirkstoffen - fördert Durchblutung, regt Zellregeneration an und entzündungshemmende Effekte (inkl. Enzyme & Heimpflegeplan)</small>
+            Circadia Oxygen RX
+            <small>reiner Sauerstoff wird aufgetragen in Kombination mit speziellen Seren и Wirkstoffen - fördert Durchblutung, regt Zellregeneration an и entzündungshemmende Effekte (inkl. Enzyme & Heimpflegeplan)</small>
           </td>
           <td>129,00 €</td>
         </tr>
@@ -207,8 +303,8 @@ footer{
       <table>
         <tr>
           <td>
-            Circadia Firming Peptide Mask<br>
-            <small style="color: #666; font-size: 0.85em;">(inkl. Enzyme) enthält Peptide, die als Bausteine von Proteinen in der Haut wirken und die Kollagenproduktion anregen - dadurch straffere Haut und Faltenreduktion</small>
+            Circadia Firming Peptide Mask
+            <small>(inkl. Enzyme) enthält Peptide, die als Bausteine von Proteinen in der Haut wirken и die Kollagenproduktion anregen - dadurch straffere Haut и Faltenreduktion</small>
           </td>
           <td>89,00 €</td>
         </tr>
@@ -221,8 +317,8 @@ footer{
       <table>
         <tr>
           <td>
-            Behandlung<br>
-            <small style="color: #666; font-size: 0.85em;">Dieses Anti-Aging Treatment arbeitet mit dem natürlichen Reparaturmechanismus der Haut, ohne sie dabei zu schädigen. Eine hervorragende Alternative zu chemischen Peelings. SWiCH™ nutzt die biologischen Stoffwechselprozesse die auf natürliche Weise in jeder Zelle des Körpers die Energieproduktion stimulieren.</small>
+            Behandlung
+            <small>Dieses Anti-Aging Treatment arbeitet mit dem natürlichen Reparaturmechanismus der Haut. SWiCH™ nutzt biologische Stoffwechselprozesse zur Energieproduktion.</small>
           </td>
           <td>99,00 €</td>
         </tr>
@@ -274,29 +370,29 @@ footer{
       <table>
         <tr>
           <td>
-            Gesichtsmassage (30min)<br>
-            <small style="color: #666; font-size: 0.85em;">(verbessert den Lymphfluss und wirkt so gegen geschwollene oder müde Augen. Eine Gesichtsmassage regt die Durchblutung an und kann einen strahlenden Teint verbessern)</small>
+            Gesichtsmassage (30min)
+            <small>(verbessert den Lymphfluss, wirkt gegen geschwollene Augen и regt die Durchblutung an)</small>
           </td>
           <td>35,00 €</td>
         </tr>
         <tr>
           <td>
-            Lymphmassage (60min / 90min)<br>
-            <small style="color: #666; font-size: 0.85em;">(Dabei wird der Transport der Lymphflüssigkeit in den Lymphgefäßen durch sanfte Grifftechniken angeregt. Für Gesicht, Arme, Rücken und Beine)</small>
+            Lymphmassage
+            <small>(Dabei wird der Transport der Lymphflüssigkeit durch sanfte Grifftechniken angeregt)</small>
           </td>
           <td>65,00 € / 110,00 €</td>
         </tr>
         <tr>
           <td>
-            Ganzkörpermassage (60min / 90min)<br>
-            <small style="color: #666; font-size: 0.85em;">(Massage des Rückens, der Beine, der Arme, des Bauches, der Hände, der Füße, des Gesichts, des Kopfes, der Schultern und des Nackens. Lassen Sie sich voll und ganz verwöhnen)</small>
+            Ganzkörpermassage
+            <small>(Massage des Rückens, der Beine, der Arme, des Bauches, der Hände, der Füße и лица)</small>
           </td>
           <td>79,00 € / 99,00 €</td>
         </tr>
         <tr>
           <td>
-            Rückenmassage (30min / 60min)<br>
-            <small style="color: #666; font-size: 0.85em;">(Schlaff? Müde? Verspannt? Alltag für viele. Wirken Sie dem entgegen und lassen Sie sich verwöhnen und Verspannungen lösen)</small>
+            Rückenmassage
+            <small>(Wirken Sie Müdigkeit и Verspannungen entgegen и lassen Sie sich verwöhnen)</small>
           </td>
           <td>40,00 € / 70,00 €</td>
         </tr>
@@ -308,54 +404,20 @@ footer{
 
 <section id="kontakt">
   <h2>Kontakt</h2>
-
   <div class="card">
-
     <p>Karlsplatz 26, 06406 Bernburg</p>
-
-    <p>
-      Telefon:
-      <a href="tel:+491713833793">+49 171 3833793</a>
-    </p>
-
-    <p>
-      E-mail:
-      <a href="mailto:info@k-linebeautylab.de">
-        info@k-linebeautylab.de
-      </a>
-    </p>
-
+    <p>Telefon: <a href="tel:+491713833793">+49 171 3833793</a></p>
+    <p>E-mail: <a href="mailto:info@k-linebeautylab.de">info@k-linebeautylab.de</a></p>
     <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;">
-      <a class="btn" href="https://wa.me/491713833793" target="_blank">
-        WhatsApp
-      </a>
-
-      <a class="btn" href="https://instagram.com/kleinbeautylab" target="_blank">
-        Instagram
-      </a>
+      <a class="btn" href="https://wa.me/491713833793" target="_blank">WhatsApp</a>
+      <a class="btn" href="https://instagram.com/kleinbeautylab" target="_blank">Instagram</a>
     </div>
-
-    <div style="margin-top:25px; border-radius:18px; overflow:hidden; border:1px solid var(--line);">
-      <iframe
-        src="https://www.google.com/maps?q=Karlsplatz%2026%2C%2006406%20Bernburg&output=embed"
-        width="100%"
-        height="260"
-        style="border:0;"
-        loading="lazy">
-      </iframe>
-    </div>
-
   </div>
 </section>
 
 <footer>
-© 2026 K-Line Beauty Lab
-
-<br><br>
-
-<a href="impressum.html">Impressum</a> |
-<a href="datenschutz.html">Datenschutz</a>
-
+© 2026 K-Line Beauty Lab<br><br>
+<a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
 </footer>
 
 </body>
